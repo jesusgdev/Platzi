@@ -1,0 +1,9 @@
+CREATE TABLE `materias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_materia` varchar(100) NOT NULL,
+  `horario` varchar(80) NOT NULL,
+  `carrera_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `materias_carrera_idx` (`carrera_id`),
+  CONSTRAINT `materias_carrera` FOREIGN KEY (`carrera_id`) REFERENCES `carreras` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

@@ -1,0 +1,23 @@
+Ejemplos de Nested queries:
+
+SELECT new_table_projection.date, count(*) AS posts_count
+FROM (
+	SELECT DATE(MIN(fecha_publicacion)) AS date, YEAR(fecha_publicacion) AS post_year
+    FROM posts
+    GROUP BY post_year
+    ) AS new_table_projection
+GROUP BY new_table_projection.date
+ORDER BY new_table_projection.date;  Esta sentencia me genera una tabla en memoria
+a traves de un query la cual me traera la informacion de la primera fecha de publicacion de cada
+año y el año de publicacion de la misma (Esto representa el mi primer query o query anidado de 
+nuestra sentencia) posteriormente agrupara los elementos de esta por fecha y luego los 
+ordenara por fecha (default asc) incluyendo en la segunda columna la cantidad de fechas por año.
+
+SELECT *
+FROM posts
+WHERE fecha_publicacion = (
+	SELECT MAX(fecha_publicacion)
+	FROM posts
+);  Esta sentencia me trae una tabla con la ultima fecha de publicacion de la tabla posts (query anidado)
+y luego me trae con el select padre el post de la tabla posts donde la fecha coincida con esta fecha obtenida
+del primer query.

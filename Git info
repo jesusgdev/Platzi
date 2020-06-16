@@ -1,0 +1,45 @@
+Para inicializar un repositorio de git local usamos el comando:
+$ git init
+Lo que nos va a generar un carpeta .git en nuestro equipo que 
+contendra toda la informacion referente al repositorio local
+que acabamos de crear.
+Para saber si poseemos claves SSH existentes en nuestro equipo
+escribimos el comando:
+$ ls -al ~/.ssh
+Esto nos va a mostrar una lista con los archivos existentes
+referentes a las llaves donde tendremos una llave publica
+(id_rsa.pub) y la llave privada(id_rsa.pub) que estara en 
+nuestro equipo y que se asegurara que la informacion solo
+sea vista por aquellos que tenga el permiso o autorizacion.
+
+Si las llaves no han sido creadas usamos el siguiente comando:
+$ ssh-keygen
+El cual generara tanto las llaves como la carpeta que las va a
+contener, el programa que crea las llave nos va a pedir una 
+frase(como una contraseña) la cual nos va a pedir cada vez que
+deseemos usar la clave, puede dejarse en blanco si no queremos
+escribir la contraseña cada vez.
+
+Una vez creadas las llaves(o si ya existian) procedemos a copiar
+la llave de acceso publico que usaremos para referenciar con 
+nuestra cuenta de github, usando el siguiente comando:
+$ clip < ~/.ssh/id_rsa.pub
+Luego nos vamos al repositorio que deseamos clonar, pisamos en 
+la parte superior derecha para desplegar el menu, seleccionamos
+"Settings", luego en el siguiente menu a la izquierda seleccionamos
+"SSH and GPG keys", luego en el boton "New SSH key", alli pondremos
+en el titulo el equipo o identificador de donde estaran almacenadas
+las llaves, y en el contenido lo que copiamos de la llave y damos
+enter.
+
+Luego copiamos el siguiente comando que nos enlazara con el origen
+del repositorio master remoto, el que esta en nuestra cuenta de github!:
+$ git remote add origin git@github.com:github_name_profile/repositorie.git
+y damos enter.
+El url que aparece luego de la palabra "origin" lo obtenemos de la pagina
+de github posicionados en el repositorio, hacemos click en clone or download
+y copiamos el contenido que aparece en la caja de texto con descripcion
+"Clone with SSH".
+
+
+

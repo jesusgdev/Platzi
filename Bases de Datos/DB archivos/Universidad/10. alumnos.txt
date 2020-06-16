@@ -1,0 +1,15 @@
+CREATE TABLE `alumnos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(32) NOT NULL,
+  `apellido` varchar(32) NOT NULL,
+  `correo` varchar(45) NOT NULL,
+  `telefono` int(32) NOT NULL,
+  `facultad_id` int(11) NOT NULL,
+  `carrera_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `correo_UNIQUE` (`correo`),
+  KEY `alumnos_facultad_idx` (`facultad_id`),
+  KEY `alumnos_carrera_idx` (`carrera_id`),
+  CONSTRAINT `alumnos_carrera` FOREIGN KEY (`carrera_id`) REFERENCES `carreras` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `alumnos_facultad` FOREIGN KEY (`facultad_id`) REFERENCES `facultades` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

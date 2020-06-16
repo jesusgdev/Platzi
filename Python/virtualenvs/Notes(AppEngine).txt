@@ -1,0 +1,88 @@
+Entorno virtual en Python: En Python la comunidad comparte su código usando 
+PyPi (python package index), es un repositorio para instalar módulos de la comunidad.
+
+Con pip install [nombre] se puede instalar el paquete que deseas.
+
+Para ver las dependencias instaladas en el entorno virtual ejecutamos "pip freeze"
+
+pip install -r requirements.txt (creamos el archivo directamente desde la consola)
+
+Podemos utilizar requirements.txt para ordenar los paquetes que requiere tu proyecto (simplemente 
+basta con guardar la informacion que nos arroje "pip freeze" en esta hoja de texto y cada vez que 
+necesitemos a alguna de estas dependencias en especifico podemos acceder a ellas directamente 
+desde el contenido del archivo requirements para instalarlas)
+
+Un Ambiente virtual nos permite encapsular un proyecto para poder instalar las versiones de los paquetes 
+que se requieran sin tenerlos que instalar en todo el sistema operativo.
+
+Para crear un entorno virtual vas a la carpeta donde esta tu proyecto y ejecutas "virtualenv venv", 
+esto creara una nueva carpeta (venv) en la que estara contenido el entorno virtual. 
+
+Para encender un entorno virtual ejecutamos ".\venv\Scripts\activate" en la carpeta donde este guardado
+nuestro entorno virtual (venv).
+
+
+Las instrucciones para configurar el entorno de desarrollo de Google Cloud con python 3.7.7 en Windows las encuentran en https://cloud.google.com/appengine/docs/standard/python3/quickstart
+
+A continuación les presento todos los pasos que seguí:
+
+Crear en la carpeta del proyecto los siguientes archivos:
+
+main.py:
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+defhola():
+    return'Hola, alumnos de Platzi!'
+
+if __name__ == '__main__':
+    app.run()
+
+
+app.yaml:
+runtime: python37
+
+appengine_config.py
+from google.appengine.ext import vendor
+vendor.add('lib')
+
+
+requirements.txt:
+Flask==1.1.2
+
+
+Descargar el instalador del SDK de Cloud desde https://cloud.google.com/sdk/docs/ y realizar la instalación.
+
+Instalar Git
+
+Ejecutar el siguiente comando para instalar el componente de gcloud que incluye la extensión de App Engine extension para Python 3.7:
+gcloud components install app-engine-python
+
+Crear el entorno virtual con python 3.7:
+virtualenv -p C:\Users(usuario)\AppData\Local\Programs\Python\Python37\python.exe venv
+
+Iniciar el entorno virtual venv:
+venv\Scripts\activate.bat
+
+Instalar Flask con pip:
+pip install flask
+
+Crear el archivo requirements.txt con lo siguiente:
+Flask==1.1.2
+
+Ejecutar el siguiente comando para instalar en la carpeta lib todas las librerías de Flask:
+pip3 install -r requirements.txt -t lib
+
+Ejecutar el siguiente comando para autenticarse:
+gcloud auth login
+
+Inicializar el SDK
+gcloud init
+
+Despliega el App Engine
+gcloud app deploy
+
+U9rfs27rd9
+

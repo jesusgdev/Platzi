@@ -1,0 +1,25 @@
+Creando un objeto de una clase:
+clase objeto = new clase( );
+
+Llamando al metodod de una clase:
+objeto.metodo( );
+
+"Metodo Static"
+Cuando disponemos de smetodos de tipo estatico, podemos 
+accesar a ellos llamandolos de la siguiente forma:
+clase.metodo( );
+
+Si al declarar la clase ademas poseemos variables de tipo estaticas, las
+podemos usar de la siguiente forma:
+clase.variable
+
+Estos no arrojara el valor que definimos para dicha variable,
+la ventaja es que este tipo de variables tiene alcance global, pueden ser 
+usadas en cualquier parte de clase y subclases de la clase asociada, ademas
+pueden ser llamadas por otras clases usando la misma nomenclatura 
+(clase.variable) o a traves de la palabra reservada import. 
+
+for (Clase_Exterior.Clase_Anidada name_reference: object(de la clase exterior).getClase_Anidada( ) ) {
+    System.out.println(name_reference.getAtributo1() + " " + name_reference.getAtributo2( ) );
+
+

@@ -1,0 +1,10 @@
+CREATE TABLE `alumnos_materias` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `materia_id` int(11) NOT NULL,
+  `alumno_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `alumnosmaterias_alumnos_idx` (`alumno_id`),
+  KEY `alumnosmaterias_materias_idx` (`materia_id`),
+  CONSTRAINT `alumnosmaterias_alumnos` FOREIGN KEY (`alumno_id`) REFERENCES `alumnos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `alumnosmaterias_materias` FOREIGN KEY (`materia_id`) REFERENCES `materias` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

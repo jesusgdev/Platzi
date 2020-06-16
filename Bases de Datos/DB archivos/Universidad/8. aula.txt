@@ -1,0 +1,5 @@
+CREATE TABLE `aula` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `numero_aula` int(8) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1

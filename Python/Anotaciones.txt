@@ -1,0 +1,7 @@
+Genera una lista aleatoria de una cantidad de numeros especifico (50 en este caso) en un rango determinado (del 1 al 100 en este caso).
+import random as rd
+list = rd.sample(range(1,100), 50)
+
+Ordenar una lista
+lista = [1, 3, 2]
+list = sorted(list)

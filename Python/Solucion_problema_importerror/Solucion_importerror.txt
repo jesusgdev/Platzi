@@ -1,0 +1,6 @@
+Hola un saludo a todos! Creo que estuve investigando horas el tema del error de import, muchas veces se les presentara este error, especialmente cuando están usando paquetes o aplicaciones externas como flask, las cuales se refieren a través de un archivo de texto y tiene un procedimiento especifico, pero en el caso de una clase es un verdadero dolor de cabeza, aquí les dejo una solución al problema, espero comenten como les fue!
+1. Abren VsCode y vallan a View>>Command Palette...
+2. En esa ventana escriban Configure Language Especific y seleccionan el texto que halla encontrado la búsqueda
+3. Se les ve a desplegar una lista de lenguajes y escriban python, probablemente les salga magicpython como se ve en la imagen, y hagan click en el.
+4. les va a abrir un archivo Json de nombre "settings.Json", allí van a ver una serie de lineas que refieren a parámetros de configuración en VsCode, verán una linea que dice esto "python.jediEnabled": false, desactivenla comentándola como se ven en la imagen, solo coloquen dos "/" al principio, debería quedar así //"python.jediEnabled": false, posteriormente le dan salvar.
+5. Reinician el VsCode y listo problema solucionado!

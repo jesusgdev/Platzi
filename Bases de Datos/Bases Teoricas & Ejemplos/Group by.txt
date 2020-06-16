@@ -1,0 +1,27 @@
+Ejemplos de GROUP BY:
+
+SELECT estatus, count(*) AS post_quantity
+FROM posts
+GROUP BY estatus;  Esta sentencia selecciona y agrupa todos los
+posts a traves del campo estatus, ya que solo poseemos solo dos 
+valores posibles para este campo (activo o inanctivo) el resultado 
+de esta  busqueda nos mostrara cuantos posts para cada tipo de 
+estatus hay en la DB.
+
+SELECT year(fecha_publicacion) AS post_year, count(*) AS post_quantity
+FROM posts
+GROUP BY post_year;  Esta sentencia nos agrupara todos los posts que
+se han realizado por año (post_year) y nos va a reflejar en una tabla el 
+año y la cantidad de posts (post_quantity) que se realizaron en ese año.
+
+SELECT monthname(fecha_publicacion) AS post_MONTH, count(*) AS post_quantity
+FROM posts
+GROUP BY post_month;  Esta sentencia nos agrupara los posts por mes 
+(post_month) y nos va a mostrar cuantos posts se escribieron en cada mes.
+
+SELECT estatus, monthname(fecha_publicacion) AS post_MONTH, count(*) AS post_quantity
+FROM posts
+GROUP BY estatus, post_month;  Esta sentencia es igual que el caso anterior pero
+ademas nos separa los activos y inactivos en cada mes.
+
+

@@ -1,0 +1,161 @@
+Estructura basica de un Query:
+
+SELECT (campos o atributos de una tabla separados por ,) por ejemplo: SELECT first_name, last_name, id
+Si colocamos el "SELECT *" nos mostrara todos los campos en dicha tabla.
+´´´Lo que quieres mostrar´´´
+
+FROM (tabla) este comando define de cual tabla buscaremos la informacion.
+´´´De donde voy a tomar los datos´´´
+
+WHERE (condicion) este comando define una condicion para la busqueda, por ejemplo : WHERE first_name = Juan
+mostrara todos los elementos solicitados cuyo primer nombre sea Juan
+´´´Los filtros de los datos que quieres mostrar´´´
+
+GROUP BY (campo o atributo) este comando agrupara la informacion por basado en el campo o atributo elegido, es
+decir colocara la informacion de cada elemento cuyo especificado se repita de manera concecutiva, ejemplo:
+GROUP BY city ordenara los elementos de la tabla agrupando aquellos que pertenezcan a la misma ciudad.
+´´´Los rubros por los que me interesa agrupar la informacion´´´
+
+ORDER BY  total (DESC or ASC) este comando ordenara la informacion en base a que elemento de un campo se repita mas
+es decir si agrupamos en base a la ciudad colocara de primero la ciudad que se repita mas y asi sucesivamente si lo hacemos
+decreciente y a la inversa si lo hacemos creciente.
+´´´´El orden en que quiero presentar mi informacion´´´
+
+HAVING (condicion) Este comando establece un filtro para mostrar solo aquellos elementos que cumplan con la condicion.
+´´´Los filtros que quiero que mis datos agrupados tengan´´´
+
+"""WHERE opera sobre registros individuales, mientras que HAVING lo hace sobre un grupo de registros."""
+
+La anterior es la diferencia principal entre estas dos cláusulas. Con WHERE podemos establecer una condición usando 
+registros individuales, aquellos que cumplan con esta condición serán seleccionados (eliminados o actualizados); ahora bien, 
+con HAVING podemos establecer una condición sobre un grupo de registros, algo muy importante es que HAVING 
+acostumbra ir acompañado de la cláusula GROUP BY. Esto último es así dado que HAVING opera sobre los grupos 
+que nos “retorna” GROUP BY.
+
+Entonces: WHERE sobre registros individuales y HAVING sobre grupos de registros, sin embargo no hay nada mejor para 
+interiorizar y terminar de entender un concepto que un buen ejemplo, y eso es precisamente lo que vamos a hacer a continuación.
+
+Ejemplo
+Para este ejemplo estoy utilizando Oracle Database Express Edition 11g junto con SQL Developer sobre Windows 10 de 64 bits. 
+Aclarado lo anterior, comencemos:
+
+Creamos una tabla llamada películas, que guarda información de código, nombre, director, fecha de lanzamiento, genero, 
+director y recaudo de las películas de un cinema.
+
+DROP TABLE peliculas;
+
+-- Creamos la tabla peliculas
+
+CREATE TABLE peliculas(
+	codigo NUMBER(5) NOT NULL,
+	nombre VARCHAR2(40) NOT NULL,
+	director VARCHAR2(30) DEFAULT 'Desconocido',
+	fecha_lanzamiento DATE,
+	genero VARCHAR(20),
+	recaudo NUMBER(20),
+	PRIMARY KEY(codigo)
+);
+Ahora insertemos algunos registros.
+INSERT INTO peliculas VALUES(1, 'Los juegos del Hambre', DEFAULT, '01/08/2014', 'Ciencia ficción', 1200000);
+INSERT INTO peliculas VALUES(2, 'Harry Potter y el Cáliz de Fuego', DEFAULT, '10/04/2012', 'Ciencia ficción', 6005400);
+INSERT INTO peliculas VALUES(3, 'Las Crónicas de Narnia', DEFAULT, '22/10/2008', 'Ciencia ficción', 5600098900);
+INSERT INTO peliculas VALUES(4, 'La lista de Schindler', 'Steven Spielberg', '22/03/1999', 'Drama', 456000120);
+INSERT INTO peliculas VALUES(5, 'La Pasión  de Cristo', 'Steven Spielberg', '19/08/2010', 'Drama', 456000120);
+INSERT INTO peliculas VALUES(6, 'Otra de Spielberg', 'Steven Spielberg', '07/11/2014', 'Drama', 456000120);
+INSERT INTO peliculas VALUES(7, 'La vida es bella', 'Roberto Benigni', '23/10/1998', 'Drama', 1256000000);
+INSERT INTO peliculas VALUES(8, 'Las posibles vidas de Mr. Nobody', 'Jaco Van Dormael', '06/11/2009', 'Ciencia ficción', 340009023);
+INSERT INTO peliculas VALUES(10, 'Buscando a Nemo', 'Andrew Stanton', '02/06/2007', 'Infantil', 780003400);
+INSERT INTO peliculas VALUES(11, 'Toy Story', 'Andrew Stanton', '22/12/2004', 'Infantil', 679000300);
+INSERT INTO peliculas VALUES(12, 'Toy Story 2', 'Andrew Stanton', '11/06/2007', 'Infantil', 5500300030);
+INSERT INTO peliculas VALUES(14, 'Toy Story 3', 'Andrew Stanton', '06/11/2012', 'Infantil', 880776000);
+INSERT INTO peliculas VALUES(15, 'Cars', 'Andrew Stanton', '14/05/2005', 'Infantil', 459000200);
+INSERT INTO peliculas VALUES(16, 'El viaje de Chihro', 'Hayao Miyazaki', '22/12/2004', 'Infantil', 456700000);
+INSERT INTO peliculas VALUES(17, 'Mi vecino Totoro', 'Hayao Miyazaki', '20/06/1992', 'Infantil', 5500300210);
+INSERT INTO peliculas VALUES(18, 'El viento se levanta', 'Hayao Miyazaki', '01/11/2013', 'Infantil', 990776000);
+INSERT INTO peliculas VALUES(19, 'Nausica del valle del viento', 'Hayao Miyazaki', '22/10/1989', 'Infantil', 669000200);
+
+Realicemos algunas consultas que implique el uso de HAVING y WHERE
+
+/*1. Una fácil: Obtener el total del recaudo, agrupado por genero y 
+director*/
+
+SELECT genero, director, SUM(recaudo) AS TOTAL FROM peliculas
+GROUP BY genero, director; 
+
+
+/*2. Ahora queremos obtener el total del recaudo, agrupado por genero y director, teniendo en cuenta solo aquellas películas que recaudaron mas de 80 pesos*/
+  
+SELECT genero, director, SUM(recaudo) AS TOTAL FROM peliculas
+  GROUP BY genero, director
+  HAVING SUM(recaudo) > 80;
+
+
+/*3. Ahora queremos obtener el total del recaudo, agrupado por genero y director, sin tener en cuenta las películas cuyo director sea
+desconocido y teniendo en cuenta solo aquellas películas que recaudaron mas de 80 pesos.*/
+
+SELECT genero, director, SUM(recaudo) AS TOTAL FROM peliculas
+  WHERE director <> 'Desconocido' AND director IS NOT NULL
+  GROUP BY genero, director
+  HAVING SUM(recaudo) > 80;
+
+
+La confusión de que WHERE hace lo mismo que HAVING viene de lo siguiente:
+
+/*Queremos obtener el recaudo de las películas agrupadas por genero y director pero solo de aquellas cuyo genero sea drama.*/
+
+-- Con where...
+SELECT genero, director, SUM(recaudo) AS TOTAL FROM peliculas
+  WHERE genero LIKE '%Drama%'
+  GROUP BY genero, director;
+
+
+--Con having...
+SELECT genero, director, SUM(recaudo) AS TOTAL FROM peliculas
+  GROUP BY genero, director
+  HAVING genero LIKE '%Drama%';
+
+
+Las dos consultas anteriores retornan los mismos registros, pero se comportan totalmente distinto. 
+En la primera, seleccionamos genero, director y la suma del recaudo siempre y cuando el genero sea ‘Drama’ (WHERE) 
+y posteriormente los agrupamos por genero y director (GROUP BY).
+
+En la segunda seleccionamos el genero, director y hacemos la suma del recaudo, sin importar si el genero es o no ‘Drama’, 
+luego los agrupamos por genero y director (GROUP BY). Por último seleccionamos solo los registros cuyo genero 
+sea ‘Drama’ (HAVING). Además, si prestaste atención, el resultado de la consulta hecha con HAVING se demora el doble 
+de tiempo que la consulta hecha con WHERE (0.008 seg y 0.004 seg respectivamente).
+
+Quizá te estés preguntando ¿cuándo usar HAVING o WHERE?, desde mi punto de vista, deberíamos usar HAVING solo 
+cuando se vea implicado el uso de funciones de grupo (AVG, SUM, COUNT, MAX, MIN), debido a que con WHERE no 
+podemos realizar condiciones que impliquen estas funciones. Por ejemplo, si intentas esto, tendrás un error:
+
+/*Obtener el promedio del recaudo de las películas, agrupado por director, teniendo en cuenta solamente aquellos 
+promedios menores a 40 y con autor conocido*/
+
+SELECT director, AVG(recaudo) AS PROMEDIO FROM peliculas
+  WHERE AVG(recaudo) < 40 AND director NOT LIKE '%Desconocido%'  
+  GROUP BY director; 
+error
+
+La anterior consulta genera error puesto que estamos usando funciones de grupo con una cláusula WHERE, que solo opera 
+sobre registros individuales, mejor intenta esto:
+
+/*Obtener el promedio del recaudo de las películas, agrupado por director, teniendo en cuenta solamente aquellos 
+promedios menores a 40 y con autor conocido*/
+
+SELECT director, AVG(recaudo) AS PROMEDIO FROM peliculas
+  GROUP BY director
+  HAVING AVG(recaudo) < 40 AND director NOT LIKE '%Desconocido%'; 
+
+
+Te recomiendo entonces usar HAVING cuando se vean implicadas las funciones de grupo. Si tienes una condición simple, 
+que implique comparar campos individuales entonces usa WHERE (e.g. que el nombre sea igual a una cadena, 
+que el recaudo de un registro sea menor a un valor, etc.)
+
+y por supuesto, si tienes otras recomendaciones puedes dejar tu comentario más abajo, siempre es bueno compartir lo que sabes.
+
+Conclusión
+Espero que con este artículo hayas aprendido que WHERE y HAVING se comportan de manera distinta aunque a veces pareciera 
+que hacen exactamente lo mismo. Si tienes alguna sugerencia que hacer o quieres aportar algo más, puedes dejarlo más abajo 
+en los comentarios. Nos vemos en una próxima entrada.
+
+"""WHERE siempre va antes de GROUP BY y HAVING despues de GROUP BY"""

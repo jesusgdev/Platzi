@@ -1,0 +1,38 @@
+r 
+bra 240
+neck 120
+belt 2400
+ring 140
+earr 70
+rune 1400
+
+sr
+bra 360
+neck 180
+belt 3600
+ring 200
+earr 100
+rune 2000
+
+ssr
+bra 520 +24 640
+neck 260 +12 320
+belt 5200 +240 6400
+ring 280 +12 340
+earr 140 +6 170
+rune 2800 +120 3400
+
+
+seen_letter = {letter,(idx,1)}
+seen_letter[letter] = dict[key] = (idx,1)
+
+seen_letter = dict
+Key = letter
+Value = (idx,1)
+
+Value[1] = 1
+
+seen_letters = 
+{a:(0,1),b:(1,1),a:(0,2),c:(3,1),a:(0,3),b:(1,2),a:(0,4),d:(7,1)}
+
+JesusGa20958092
