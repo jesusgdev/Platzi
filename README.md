@@ -1,0 +1,2 @@
+# Platzi
+Información de platzi
