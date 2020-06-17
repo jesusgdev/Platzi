@@ -384,8 +384,8 @@ nuestra plataforma.
 14. """Variable vs. Objeto"""
 
 Las Variables son entidades elementales muy sencillas, pueden ser números, 
-aracteres, booleanos, entre otras. Los Objetos son entidades complejas que 
-ueden estar formadas por la agrupación de diferentes variables y métodos.
+caracteres, booleanos, entre otras. Los Objetos son entidades complejas que 
+pueden estar formadas por la agrupación de diferentes variables y métodos.
 
 Los Objetos Primitivos o Clases Wrapper son variables primitivas que 
 trabajan con algún tipo de dato y también tienen las características de 
@@ -586,6 +586,85 @@ De esta manera al imprimir la informacion de un objeto de la clase
 hija agregara primero todos los atributos que poseia originalmente 
 en el metodo padre y posteriormente la nueva informacion perteneciente
 a la clase hija.
+
+
+21. """Interfaces"""
+
+Las Interfaces son un tipo de referencia similar a una clase con solo 
+constantes y definiciones de métodos, son de gran ayuda para definir 
+los comportamientos que son redundantes y queremos reutilizar un más 
+de una clase, incluso cuando tenemos muchas clases y no todas pertenecen 
+a la misma “familia”.
+
+Las interfaces establecen la forma de las clases que la implementan, 
+así como sus nombres de métodos, listas de argumentos y listas de 
+retorno, pero NO sus bloques de código, eso es responsabilidad de 
+cada clase.
+
+22. """Creando una interfaz para definir si una fecha es agendable"""
+
+Composición de Interfaces en Clases: abstraer todos los 
+métodos/comportamientos de una clase para modularizarlos (comprimirlos, 
+encapsularlos) en una interfaz y reutilizar su código en diferentes clases.
+
+Las interfaces se crean utilizando la palabra reservada interface y 
+se implementan en nuestras clases con implements.
+
+Recuerda que podemos heredar (implementar) más de una interfaz, pero 
+no podemos hacerlo de las clases padres o superclases.
+
+public interface ISchedulabe {
+  void schedule(Date date, String Time);
+}
+
+public class AppointmentDoctor implements ISchedulable {
+  @Override
+  public void schedule(Date date, String Time) {
+    // ...
+  }
+}
+
+23. """Clases Abstractas"""
+
+A veces NO necesitamos implementar todos los métodos de una clase 
+heredada o interfaz. No siempre necesitamos crear instancias o implementar 
+odos los métodos heredados de una clase padre, así como tampoco podremos 
+necesitamos algún método de nuestras interfaces, pero estas nos obligan 
+a escribir el código de todos los métodos que definimos genéricamente.
+
+Afortunadamente, las Clases Abstractas resuelven todos estos problemas. 
+Son una combinación entre interfaces y herencia donde no implementaremos 
+todos los métodos ni tampoco crearemos instancias.
+
+public abstract class Figura {
+  // ...
+}
+
+class Triangulo extends Figura {
+  // ...
+}
+
+24. """Miembros abstractos"""
+
+Los Métodos Abstractos son los métodos que debemos implementar 
+obligatoriamente cada vez que usemos nuestras clases abstractas, 
+mientras que los métodos que no sean abstractos van a ser opcionales.
+
+public abstract class Figura {
+  abstract void dibujar(); // obligatorio
+  void dibujar3D(); // no es obligatorio
+}
+
+class Triangulo extends Figura {
+  void dibujar() {
+    // Instrucciones para dibujar el triángulo...
+  }
+}
+Recuerda los métodos abstractos solo se pueden implementar en clases 
+abstractas. Y las clases abstractas no necesitan ser instanciadas 
+para ser implementadas.
+
+25. """
 
 */
 

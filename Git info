@@ -41,5 +41,84 @@ de github posicionados en el repositorio, hacemos click en clone or download
 y copiamos el contenido que aparece en la caja de texto con descripcion
 "Clone with SSH".
 
+$ git status
+Este comando nos muestra todos los archivos en lo que estamos trabajando y
+que esten ubicados en la carpeta donde esta la carpeta de inicializacion 
+de git(.git) lo cual nos permite saber que archvo se anexarian al staging
+si ejecutamos un add.
+
+Para agregar archivos a mi repositorio local en git debo estar dentro de
+la carpeta donde se encuentran, luego ejecutamos el comando:
+$ git add . (si deseamos agregar todos los archivos alli contenidos) o
+$ git add file_name (si solo deseamos agregar un archivo en especifico)
+
+$ git log
+Este comando nos muestra el ultimo commit agregado al repositorio local.
+
+Si no hemos agregado un archivo que hemos modifico al area de staging y 
+deseamos volver atras a los cambios realizados del archivo original
+(este archivo tiene que haber sido guardado previamente antes de la
+modificacion), podemos usar un comando que devuelve el archivo a su
+estado original y revierte los cambios hechos:
+$ git checkout -- file_name
+Con este comando podemos retornar a una version previa de un archivo
+almacenado en git(devuelve el archivo original hasta la ultima version
+donde se realizo un commit).
+
+$ git diff file_name
+Con este comando podemos ver las diferencias de las modificaciones
+realizadas a un archivo respecto al original que se encuentra en el repositorio local.
+
+Si deseamos excluir de los archivos que subiremos al repositorio algunos
+archivos o carpetas contenidas en la carpeta raiz de git, podemos crear
+un archivo de texto que llamaremos ".gitignore", adrento de el vamos a 
+guardar el nombre del archivo o carpeta que queremos excluir.
+
+$ git branch
+Este comando nos indica en que rama nos encontramos actualmente y nos
+muestra ademas las ramas creadas en nuestro repositorio local
+
+$ git branch name
+Con este comando creamos uno rama(si no existe un nombre igual) y se 
+agrega automaticamente a la lista de las ramas registradas en nuestro
+repositorio local.
+
+$ git checkout branch
+Con este comando nos movemos a la rama seleccionada.
+
+$ git remote add origin https://github.com/jesusg54g/Platzi.git
+Con este comando(la parte que inicia en el http.. lo conseguimos en
+nuestro repositorio en el boton clonar repositorio, desplegamos esa
+opcion y escogemos donde dice https en azul en la parte derecha superior
+del recuadro y nos desplegara otro menu con el titulo "Clone with HTTPS"
+alli copiamos el contenido de la caja de texto que aparece alli, y ese
+va a ser el que usaremos en este comando.)
+Existe otra opcion para el uso del login mediante encriptacion (Es mas
+seguro y usa el cifrado SSH key el cual hay una introducion mas arriba
+pero lleva otro procedimiento.)
+
+Ahora primero es recomendable ejecutar primero una actualizacion del repositorio local al commit mas nuevo, para eso usamos el comando:
+$ git pull origin master
+Con este comando nos vamos a traer todos los cambios que tengamos en el
+repositorio remoto que no tengamos registrados en el repositorio local. 
+
+Si hay algun problema podemos usar el comando:
+$ git pull origin branchname --allow-unrelated-histories
+El cual nos permitira hacer el pull sin importar la diferencia entre
+archivos, muchas veces tenemos un archivo en el remoto diferente al que
+tenemos en el local (diferente en el aspecto que no es ni una version 
+mas vieja ni una mas nueva, es otro archivo totalmente diferente pero
+se llaman igual) y esto trae una serie de incompatibilidades que causan
+estos errores.
+
+$ git push -u origin master
+Con este comando una vez enlazado nuestro repositorio local con el remoto
+ya estamos en la posibilidad de subir nuestros archivos alojados en el 
+repositorio local al repositorio remoto de github.
+
+
+
+
+
 
 
