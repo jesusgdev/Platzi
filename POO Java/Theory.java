@@ -664,7 +664,124 @@ Recuerda los métodos abstractos solo se pueden implementar en clases
 abstractas. Y las clases abstractas no necesitan ser instanciadas 
 para ser implementadas.
 
-25. """
+25. """Clases Anónimas"""
+
+Las Clases Anónimas son una forma de instanciar clases abstractas 
+sin necesidad de usar sus clases hijas. Pero este tipo de instanciación 
+tiene algunas restricciones: el ciclo de vida de estas instancias NO es 
+duradero, no las tendremos disponibles durante toda la ejecución del 
+programa.
+
+// Clase Abstracta:
+public abstract class Figura {
+  abstract void dibujar();
+}
+
+// Clase Anónima:
+User user = new User() {
+  @Override
+  public void showDataUser() {
+    // Instrucciones...
+  }
+};
+
+26. """Diferencias entre las Interfaces y las Clases Abstractas"""
+
+Clase Abstracta: Para definir una clase abstracta esta debera tener al
+menos una clase hija, para que esta pueda reutilizar los metodos de la
+clase padre(la clase que seria abstracta en este caso).
+Este tipo de clase no se pueden instanciar, es decir no se podran crear
+objetos de ella, unicamente a traves de sus clases hijas.
+El comportamiento de la clases abstractas es lineal, es decir de padres
+a hijas.
+
+Interfaces: Estas estaran definidas a traves de metodos abstractos, que
+a diferencia de las clases abstractas esta podra implementar los metodos
+de una manera mas amplia, a todas las familias de clases, dejara de ser
+lineal como en el caso de las clases abstractas. Las interfaces convienen
+ser usados cuando requerimos implementar metodos que se comparten entre
+familias es decir la relacion va mas alla de la herencia entre dos clases.
+
+En las clases abstractas pensaremos mas en los objetos y en las interfaces
+pensaremos mas en las acciones que pueden tener en comun muchos objetos
+
+Una buena practica es que el diseño de tus aplicaciones este orientado a
+interfaces y no a las implementaciones.
+*Crear buenas abstraciones
+*Comportamiento comun 
+*Declaracion de metodos
+
+27. """Interfaces en Java 8 y 9"""
+
+Las Interfaces nos permiten usar métodos abstractos y campos constantes 
+para implementar herencia/polimorfismo de forma muy similar a las clases 
+abstractas.
+
+A partir de Java 8 podemos tener implementación en métodos para heredar 
+y reutilizar diferentes comportamientos. No todos los métodos de nuestras 
+interfaces deben ser abstractos, ahora podemos usar el modificador de 
+acceso default y desde Java 9 también private.
+
+Recuerda que el nivel de acceso de default y private son los mismos que 
+estudiamos en clases anteriores.
+
+public interface MyInterface {
+  // Métodos default: nos permite heredar la definición
+  // de la función y también su implementación...
+  default void defaultMethod() {
+    privateMethod("Hello from the default method!");
+  }
+
+  // Métodos private: nos permiten definir comportamiento,
+  // pero solo se puede usar desde otras clases de esta
+  // interfaz, no se hereda a la clase hija....
+  private void privateMethod(final String message) {
+    System.out.println(message);
+  }
+
+  // Métodos abstractos: recuerda que todos los métodos
+  // son abstractos por defecto...
+  void normalMethod();
+}
+
+28. """Definiendo las citas disponibles"""
+
+Algunas veces necesitamos trabajar las fechas como tipo de dato 
+Date y otras veces como String. Para resolver esto podemos usar 
+SimpleDateFormat.
+
+SimpleDateFormat format = new SimpleDateFormat(pattern: "dd/MM/yyyy");
+
+// Transformar fechas de formato String a Date:
+this.date = format.parse(dateAsString);
+
+// Transformar fechas de formato Date a String:
+this.date = format.format(dateAsDate);
+
+29. """Recorriendo estructuras de árbol en Java"""
+
+Las estructuras de árbol pertenecen al grupo de estructuras de datos 
+no lineales, es decir, donde toda la información es almacenada con un 
+orden específico. En estas estructuras tenemos “troncos” principales 
+con diferentes ramificaciones que surgen a partir de ellos. Son muy 
+útiles para trabajar con grandes cantidades de datos organizados de 
+forma jerárquica.
+
+La forma de implementarlos en Java es usando un Map de tipo TreeMap. 
+Recuerda que también podemos guardar Maps dentro de otros Maps. De 
+esta forma podemos definir una lista ordenada de doctores y sus 
+fechas disponibles para agendar citas médicas.
+
+// 1. Doctor#1
+// - - - Fecha#1
+// - - - Fecha#2
+// 2. Doctor#2
+// - - - Fecha#1
+// - - - Fecha#2
+// 3. Doctor#3
+// - - - Fecha#1
+// - - - Fecha#2
+Map<Integer, Map<Integer, Doctor>> doctors = new TreeMap<>();
 
 */
 

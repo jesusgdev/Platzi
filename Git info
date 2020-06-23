@@ -117,8 +117,44 @@ ya estamos en la posibilidad de subir nuestros archivos alojados en el
 repositorio local al repositorio remoto de github.
 
 
+"""Eliminar un remoto""""
+
+Utiliza el comando git remote rm para eliminar una URL remota de tu repositorio.
+
+El comando git remote rm toma un argumento:
+
+El nombre de un remoto, por ejemplo destination (destino)
+Ejemplo
+Estos ejemplos asumen que estás clonando con HTTPS, lo cual se recomienda.
+
+$ git remote -v
+# Ver los remotos actuales
+> origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+> origin  https://github.com/OWNER/REPOSITORY.git (push)
+> destination  https://github.com/FORKER/REPOSITORY.git (fetch)
+> destination  https://github.com/FORKER/REPOSITORY.git (push)
+
+$ git remote rm destination
+# Eliminar remoto
+$ git remote -v
+# Verificar que se haya ido
+> origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+> origin  https://github.com/OWNER/REPOSITORY.git (push)
+Nota: git remote rm no elimina el repositorio remoto del servidor. Simplemente, elimina de tu repositorio local el remoto y sus referencias.
+
+Solución de problemas
+Te puedes encontrar con estos errores al intentar eliminar un remoto.
+
+No se pudo eliminar la sección de configuración 'remote.[name]'
+Este error significa que el remoto que trataste de eliminar no existe:
+
+$ git remote rm sofake
+> error: No se pudo eliminar la sección de configuración 'remote.sofake'
+Comprueba que escribiste correctamente el nombre del remoto.
 
 
-
-
-
+Antes de hacer un push o un pull es recomendable revisar la configuracion
+actual de las url de los accesos al servidor remoto (origin - master), en 
+este caso debemos constatar que estemos la cual vamos a usar como referencia
+local para los archivos de nuestro repositorio remoto(master) y chequear con 
+el comando "remote" si esta bien configurado el acceso a nuestro repositorio remoto.
