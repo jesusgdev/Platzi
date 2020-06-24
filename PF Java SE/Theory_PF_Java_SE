@@ -1,0 +1,60 @@
+/*
+
+En programación, cuando se habla de ciudadanos de primera clase o 
+First-class citizens (o first-class constructs o first-class elements), 
+es para hacer referencia a un elemento del lenguaje que posee la mayor 
+cantidad de privilegios dentro de dicho lenguaje.
+
+A pesar de lo anterior, este no es un término bien definido, ya que 
+varía por muchos factores, y el principal de ellos es el lenguaje de 
+programación del cual estemos hablando. Pero hay ciertas características 
+que generalmente se toman en cuenta para decir si un elemento es de primera 
+clase o no:
+
+*Puede ser guardado en variables
+*Pueden ser usados como argumentos
+*Pueden ser un valor de retorno
+*Tienen identidad propia
+
+Es importante señalar que si bien “existen” ciudadanos de primera clase, 
+no existen de segunda o tercera. Una cosa es de primera o no lo es.
+
+En java tenemos por ejemplo:
+Interfaces
+Clases
+Structs
+tipos de datos primitivos
+entre otras cosas
+
+
+Funciones Puras:
+Son funciones que bajo las mismas condiciones y parametros siempre arrojaran
+un mismo valor, es decir una funcion la cual sera posible predecir su comportamiento.
+Ejemplo:
+La funcion suma de dos valores, la cual siempre nos arrojara el mismo resultado
+Sum(x+y) conociendo los valores de X y Y siempre podremos predecir el valor de 
+esta funcion.
+*Otra caracteristica es que esta no genera valores aleatorios.
+*Una funcion pura no puede invocar una funcion impura pero una funcion impura
+puede invocar tanto una funcion pura como una impura.
+*Una funcion pura solo puede invocar otra funcion pura.
+
+Las funciones impuras a diferencia de las funciones puras pueden ocasionar
+"efectos secundarios".
+Los efectos secundarios son aquellos cambios que se pueden observar desde
+fuera del sistema, es decir cambios o alteraciones externos a nuestro entorno
+de trabajo.
+Por ejemplo una funcion que permita cambiar el color de algun elemento dentro
+de nuestro sistema, para ello ello tuvo que haber algun tipo de modificacion
+o configuracion a los parametros originales de este elemento, este tipo de 
+acciones se conoce como efecto secundario.
+
+Acciones tipicas de efectos secundarios:
+*Leer/Crea/Modificar/Borrar archivos.
+*Leer/Escribir una base de datos.
+*Enviar/Recibir una llamada de red.
+*Alterar un objeto/variable usada por otras funciones.
+
+
+
+*/
