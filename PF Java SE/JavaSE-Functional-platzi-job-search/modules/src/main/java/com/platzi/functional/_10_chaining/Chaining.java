@@ -7,6 +7,31 @@ import com.platzi.functional._10_chaining.data.Account;
 import java.util.function.Function;
 
 public class Chaining {
+    public static void main(String[] args) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Hola ")
+                .append("mi ")
+                .append("nombre ")
+                .append("es ")
+                .append("Jesús");
+        System.out.println(stringBuilder.toString());
+
+        Chainer chainer = new Chainer();
+
+        chainer.sayHi().sayBye();
+    }
+
+    static class Chainer {
+        public Chainer sayHi() {
+            System.out.println("Hola");
+            return this;
+        }
+
+        public Chainer sayBye() {
+            System.out.println("Adios");
+            return this;
+        }
+    }
 
     /**
      * Aunque el chaining no es algo exclusivo o a conocer de la programacion funcional,
@@ -79,4 +104,6 @@ public class Chaining {
                         .apply("Hablando de chaining, esto Hola, fucho")
         );
     }
+
+
 }
