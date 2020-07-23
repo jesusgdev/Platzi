@@ -60,7 +60,9 @@ En el caso del postfijo, por ejemplo si tenemos la misma variable
 a = 1 y la imprimieramos como (a++) obtendriamos 1, pero todo valor
 de a posterior que decidamos usar o asignar a una operacion ahora
 pasara a valer 2.
+int a = 2
 System.out.println(a++ + a); //(4 + 5) -> 9
+
 
 A traves de la tabla de unicodes hexadecimal podemos representar 
 letras, caracteres y simbolos mediante la sintaxis \u.
@@ -177,4 +179,97 @@ inmediatamente esto nos generara un archivo file.class que este
 archivo representa nuestro codigo compilado(llevado a java bytecode) 
 y el cual podremos ejecutar en nuestro jvm a traves de la aplicacion
 de java colocando java seguido del nombre del archivo(java file)
+
+Los packeage en java son un sistema de carpetas unico, el nombre del 
+package va definido por el identificador de la empresa o el desarrollador, 
+en este caso se usa como identificador el dominio que es el nombre unico 
+que identifica un registro en la web, pero al contrario empezaremos por 
+la palabra "com" seguido de un "." y el nombre del dominio y luego otro 
+"." seguido del nombre del proyecto.
+Por ejemplo:
+Si tu empresa fuese wwww.softwareengine.com el package podria llamarse 
+com.softwareengine.proyect_name
+
+Para hacer el redondeo de un numero o resultado de una operacion usamos 
+la funcion bigdecimal.
+
+double number = 3.5453545584444
+BigDecimal bd = new BigDecimal(number);
+        bd = bd.setScale(3,RoundingMode.HALF_UP);
+        System.out.println(bd.doubleValue());
+
+primero creamos un objeto de tipo bigdecimal y le asignamos el valor 
+number y mediante el metodo setScale seteamos la cantidad de decimales 
+a 3 y RoundingMode.HALF_UP le decimos que haga el redondeo por defecto
+(es decir al siguiente entero mas cercano 1.2 -> 1 ó 3.6 -> 4), como el 
+numero bd es de tipo bigdecimal usamos la funcion doubleValue para 
+devolver el valor a tipo doble lo que al imprimir nos da como resultado 
+3.545.
+
+"""CONVERSIONES NO SEGURAS (CASTEOS)"""
+
+No todos los Cast de variables se puede convertir de forma segura.
+
+Ejemplo:
+Al convertir un Short de 2 bytes a Byte que contiene 1 Byte se deberá cortar los bits superiores ocasionando pérdidas de información.
+
+short datoShort = 259;
+byte datoByte = (byte) datoShort;
+
+Al imprimir la variable “datoByte” da como resultado: 3
+
+259: En binario es 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 que equivale a 2 bytes.
+
+Al castearlo en Byte toma los primeros 8 bits del lado derecho. 0 0 0 0 0 0 1 1 (descartando el bit 1 de la posición 8). Este binario en formato decimal corresponde a 3.
+
+Recordar que los metodos y comportamientos de un objeto dependeran 
+del contexto o el entorno en que se encuentren.
+
+Recordar los metodos estaticos nos permiten llamarlos a traves de 
+la clase a la cual pertenecen sin necesidad de instanciar ningun 
+objeto (Class.method()) a diferencia de los metodos no estaticos 
+estos requeriran previamente un objeto para ser invocados 
+(Object1.method()).
+
+En el caso de las variables de tipo estaticos, siempre que sean 
+publicas pueden ser accedidas y hasta modificadas desde otras 
+clases sin necesidad de instanciar un objeto de la clase a la 
+cual pertenecen, en el caso de estar privadas aun podemos 
+realizarlo usando los setters.
+
+Recordar a las variables primitivas se les asigna un valor el 
+cual sera almacenado en la memoria "Stack" sin embargo todo 
+valor que se le asigne a un objeto sera almacenado en una 
+variable de tipo "Heap" y la referencia para este objeto 
+(Direccion en memoria) es la que sera almacenado en la memoria 
+"Stack".
+
+Los metodos abstractos, aquellos que pertenezcan a la clase 
+abstracta, seran obligatorios dentro de las clases hijas o 
+las subclases de la clase abstracta que los contenga.
+
+Una Clase Abstracta puede contener metodos abstractos y no 
+abstractos pero al menos debe contener un metodo abstracto.
+
+AL igual que con las interfaces cuando implementamos una 
+interfaz en una clase sera obligatorio que esta contenga los 
+metodos de dicha interfaz.
+
+Al hacer una clase abstracta esta no podra ser instanciada 
+sin embargo podremos aplicar polimorfismo ya que si podremos 
+instanciar un objeto de las clases hijas de dicha clase 
+abstracta y asignarles el resultado a uno del tipo de la clase 
+abstracta, la clase abstracta no puede ser instanciada por si 
+sola pero le podemos asignar los atributos de sus clases hijas 
+para definir un objeto de dicha clase.
+Ejemplo:
+
+public abstract class Contruccion
+
+public class Casa extends Contruccion
+
+Construccion construccion = new Casa (atributo1, atributo2,....)
+
+
+
 
