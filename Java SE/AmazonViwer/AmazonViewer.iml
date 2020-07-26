@@ -9,6 +9,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="libs" level="project" />
     <orderEntry type="library" exported="" name="MakeReport" level="project" />
-    <orderEntry type="library" name="makefile" level="project" />
+    <orderEntry type="library" exported="" name="makefile" level="project" />
+    <orderEntry type="library" exported="" name="mysql-connector-java-5.1.49" level="project" />
   </component>
 </module>

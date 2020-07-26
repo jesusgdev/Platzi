@@ -4,6 +4,7 @@ import com.anncode.makereport.Report;
 import com.jesus.amazonviewer.model.*;
 import com.jesus.util.AmazonUtil;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -88,9 +89,9 @@ public class Main {
         } while (exit > 0);
     }
 
-    static ArrayList<Movie> movies = Movie.makeMovieList();
+    static ArrayList<Movie> movies = new ArrayList<>();
     public static void showMovies() {
-
+        movies = Movie.makeMovieList();
         do {
             System.out.println("");
             System.out.println("::: MOVIES :::");
