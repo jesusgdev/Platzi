@@ -2,23 +2,25 @@ package com.jesus.amazonviewer.dao;
 
 import com.jesus.amazonviewer.db.IDBConnection;
 import com.jesus.amazonviewer.model.Movie;
-
 import java.sql.*;
-
 import static com.jesus.amazonviewer.db.DataBase.*;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public interface MovieDAO extends IDBConnection {
 
-    default Movie setMovieViewed(Movie movie) {
+    default void setMovieViewed(Movie movie) {
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String todayDate = df.format(date);
         try(Connection connection = connectToDB()) {
             Statement statement = connection.createStatement();
+
             String query = "INSERT INTO " + TVIEWED +
-                    "("+ TVIEWED_IDMATERIAL +", "+ TVIEWED_IDELEMENT +", "+ TVIEWED_IDUSUARIO +")" +
-                    " VALUES("+ ID_TMATERIAL[0] +", "+ movie.getId() +", "+ TUSER_IDUSUARIO +")";
+                    "("+ TVIEWED_IDMATERIAL +", "+ TVIEWED_IDELEMENT +", "+ TVIEWED_IDUSUARIO +", "+ TVIEWED_DATE +") " +
+                    " VALUES("+ ID_TMATERIAL[0] +", "+ movie.getId() +", "+ TUSER_IDUSUARIO +", '"+ todayDate +"') ";
+            System.out.println(query);
 
             if (statement.executeUpdate(query) > 0) {
                 System.out.println("Se marco en visto");
@@ -26,15 +28,13 @@ public interface MovieDAO extends IDBConnection {
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            return movie;
         }
-
     }
 
-    default ArrayList<Movie> read() {
-        ArrayList<Movie> movies = new ArrayList<>();
-        try(Connection connection = connectToDB()) {
+
+    default ArrayList<Movie> read(){
+        ArrayList<Movie> movies = new ArrayList();
+        try (Connection connection = connectToDB()){
             String query = "SELECT * FROM " + TMOVIE;
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
@@ -53,22 +53,20 @@ public interface MovieDAO extends IDBConnection {
                         connection,
                         Integer.parseInt(rs.getString(TMOVIE_ID))));
                 movies.add(movie);
+
             }
-            preparedStatement.close();
 
-        } catch (SQLException e) {
+
+        }catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            return movies;
         }
-
+        return movies;
     }
 
-    private boolean getMovieViewed(PreparedStatement preparedStatement,
-                                   Connection connection, int id_movie) {
+    private boolean getMovieViewed(PreparedStatement preparedStatement, Connection connection, int id_movie) {
         boolean viewed = false;
         String query = "SELECT * FROM " + TVIEWED +
-                " WHERE " + TVIEWED_IDMATERIAL + "= ?" +
+                " WHERE " + TVIEWED_IDMATERIAL + "= ?"+
                 " AND " + TVIEWED_IDELEMENT + "= ?" +
                 " AND " + TVIEWED_IDUSUARIO + "= ?";
         ResultSet rs = null;
@@ -82,11 +80,9 @@ public interface MovieDAO extends IDBConnection {
             rs = preparedStatement.executeQuery();
             viewed = rs.next();
 
-            preparedStatement.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            return viewed;
         }
+        return viewed;
     }
 }

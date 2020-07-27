@@ -2,7 +2,6 @@ package com.jesus.amazonviewer.model;
 
 import com.jesus.amazonviewer.dao.MovieDAO;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -98,7 +97,7 @@ public class Movie extends Film implements IVisualizable, MovieDAO {
 
         Date dateI = startToSee(new Date());
 
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 100; i++) {
             System.out.println("☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻☻");
         }
 

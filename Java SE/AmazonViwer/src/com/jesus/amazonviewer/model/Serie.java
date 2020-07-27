@@ -25,7 +25,6 @@ public class Serie extends Film {
                  int duration, int sessionQuantity) {
         super(title, genre, creator, duration);
         this.sessionQuantity = sessionQuantity;
-        this.chapters = chapters;
     }
 
 
@@ -60,15 +59,15 @@ public class Serie extends Film {
     }
 
     public static ArrayList<Serie> makeSeriesList() {
-        ArrayList<Serie> series = new ArrayList();
+        ArrayList<Serie> series = new ArrayList<>();
 
         for (int i = 1; i <= 5; i++) {
-            Serie serie = new Serie("Serie "+i, "genero "+i, "creador "+i, 1200, 5);
+            Serie serie = new Serie("Serie "+i, "genero "+i,
+                    "creador "+i, 1200, 5);
             serie.setChapters(Chapter.makeChaptersList(serie));
             series.add(serie);
 
         }
-
         return series;
     }
 

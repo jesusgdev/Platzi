@@ -27,9 +27,9 @@ public class DataBase {
 
 
     //Tabla Viewed
-    public static final String TVIEWED = "id";
+    public static final String TVIEWED = "viewed";
     public static final String TVIEWED_IDMATERIAL = "id_material";
     public static final String TVIEWED_IDELEMENT = "id_element";
     public static final String TVIEWED_IDUSUARIO = "id_user";
-    public static final String TVIEWED_DATE = "date_viewed";
+    public static final String TVIEWED_DATE = "date";
 }

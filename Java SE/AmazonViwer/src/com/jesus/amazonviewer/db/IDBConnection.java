@@ -1,8 +1,8 @@
 package com.jesus.amazonviewer.db;
 
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+
 import static com.jesus.amazonviewer.db.DataBase.*;
 
 public interface IDBConnection {
@@ -15,12 +15,11 @@ public interface IDBConnection {
             connection = DriverManager.getConnection(URL + DB, USER, PASSWORD);
 
             if (connection != null) {
-                System.out.println("Se establecio la conexion :)");
+                System.out.println("••••••••••••••••");
             }
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            return connection;
         }
+        return connection;
     }
 }

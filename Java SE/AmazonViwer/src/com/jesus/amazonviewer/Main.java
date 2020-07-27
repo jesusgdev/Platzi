@@ -34,7 +34,6 @@ public class Main {
     public static int exit = 1;
 
     public static void showMenu() {
-        Scanner scanner = new Scanner(System.in);
 
         do {
             System.out.println("BIENVENIDOS AMAZON VIEWER");
@@ -48,8 +47,8 @@ public class Main {
             System.out.println("6. Report Today");
             System.out.println("0. Exit");
 
-            int response = scanner.nextInt();
-
+            //Leer la respuesta del usuario
+            int response = AmazonUtil.validateUserResponseMenu(0, 6);
 
             switch (response) {
                 case 0:
@@ -182,7 +181,7 @@ public class Main {
 
             for (int i = 0; i < books.size(); i++) { //1. Book 1
                 System.out.println(i+1 + ". " + books.get(i).getTitle() +
-                        " Visto: " + books.get(i).isReaded());
+                        " Leido: " + books.get(i).isReaded());
             }
 
             System.out.println("0. Regresar al Menu");
@@ -263,24 +262,25 @@ public class Main {
         report.setContent(contentReport);
         report.makeReport();
         System.out.println("Reporte Generado");
-        System.out.println();
+        System.out.println("");
     }
 
+    static ArrayList<Movie> moviesDaily = Movie.makeMovieList();
     public static void makeReport(Date date) {
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd-h-m-s-S");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String dateString = df.format(date);
-        Report report = new Report();
 
-        report.setNameFile("reporte" + dateString);
+        Report report = new Report();
+        report.setNameFile("Reporte " + dateString);
         report.setExtension("txt");
         report.setTitle(":: VISTOS ::");
 
 
-        SimpleDateFormat dfNameDays = new SimpleDateFormat("E, W MMM Y");
+        SimpleDateFormat dfNameDays = new SimpleDateFormat("EEEEE dd MMMMM yyyy HH:mm:ss");
         dateString = dfNameDays.format(date);
-        String contentReport = "Date: " + dateString + "\n\n\n";
+        String contentReport = "Date: " + dateString + "\n\n";
 
-        for (Movie movie : movies) {
+        for (Movie movie : moviesDaily) {
             if (movie.getIsViewed()) {
                 contentReport += movie.toString() + "\n";
 
@@ -305,7 +305,6 @@ public class Main {
         }
         report.setContent(contentReport);
         report.makeReport();
-
         System.out.println("Reporte Generado");
         System.out.println();
     }

@@ -1,0 +1,38 @@
+Date: Monday 27 July 2020 17:48:12
+
+
+
+::: MOVIE :::
+Title: Coco
+Genre: Animación
+Year: 2017
+Creator: Pixart
+Duration: 120
+
+::: MOVIE :::
+Title: Titanic
+Genre: Drama
+Year: 1997
+Creator: James Cameron
+Duration: 195
+
+::: MOVIE :::
+Title: Avatar
+Genre: Ficción
+Year: 2009
+Creator: James Cameron
+Duration: 161
+
+::: MOVIE :::
+Title: Amélie
+Genre: Romance
+Year: 2001
+Creator: Jean-Pierre Jeunet
+Duration: 123
+
+::: MOVIE :::
+Title: Sombra del Agua
+Genre: Drama-Fantasía
+Year: 2017
+Creator: Guillermo del Toro
+Duration: 123
