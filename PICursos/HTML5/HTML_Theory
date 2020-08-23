@@ -641,8 +641,18 @@ function comenzar() {
     lienzo.arc(100, 100, 50, 0, Math.PI, false);
     lienzo.stroke();
 }
-
-
+****Propiedades API Canvas para Lineas****
+•lineWidth: grosor de linea. Por defecto = 1
+•lineCap: terminacion de linea.
+(Valores posibles Butt, Round, Square)
+•lineJoin: conexion entre lineas. 
+(Valores posibles Round, Bevel, Miter)
+•miterLimiti: para usar junto a lineJoin con valor 
+miter. Determina cuanto ha de extenderse la union 
+entre lineas.
+•importante: cada vez que cambiemos las caracteristicas 
+de la linea, ha de comenzarse un nuevo trazado con
+beginPath()
 
 
 
