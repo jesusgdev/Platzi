@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+
+    <section>
+
+        <form name="miFormulario" id="miFormulario" method="GET" autocomplete="off">
+            Email:&nbsp;<input type="email" name="Email" id="email" required multiple><br><br>
+            Buscar:&nbsp;<input type="search" name="Search" id="search"><br><br>
+            URL:&nbsp;<input type="url" name="URL" id="url" autofocus><br><br>
+
+            &nbsp;&nbsp;Edad:&nbsp;<input type="number" name="Edad" id="edad" min="0" max="100" step="5"
+                placeholder="Multiplos de 5"><br><br>
+            <!-- <input type="submit" value="Send"><br><br> -->
+
+            &nbsp;&nbsp;Volumen:&nbsp;<input type="range" name="Volumen" id="volumen" min="5" max="105"><br><br>
+            <!-- <input type="submit" value="Send"><br><br> -->
+
+            &nbsp;&nbsp;Fecha:&nbsp;<input type="time" name="Time" id="time"><br><br>
+
+            <!-- pattern es un atributo especial que nos permite establecer restricciones
+            muy especificas a la hora de introducir alguna informacion en nuestras
+            cajas de texto input a la hora de enviar informacion a algun formulario,
+            por ejemplo en el caso de necesitar un campo de tipo codigo postal,
+            estos tienen una restriccion que deben contener 5 cifras y los numeros
+            del 0 al 9 ya que no acepta letras, para ello usamos pattern estableciendo
+            los caracteres validos como "[0-9]" y la cantidad de cifras limitada a "{5}" -->
+            &nbsp;&nbsp;Zip Code:&nbsp;<input pattern="[0-9]{5}" name="ZipCode" id="zipcode"
+                placeholder="5 digitos"><br><br>
+            <input type="submit" value="Send"><br><br>
+
+        </form>
+
+    </section>
+
+    <img src="1.jpg" alt="Flores"><br>
+    &nbsp;&nbsp;Nombre:&nbsp;<input type="text" name="Nombre" id="nombre" form="miFormulario">
+</body>
+
+</html>

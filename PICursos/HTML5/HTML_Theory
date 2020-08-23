@@ -1,0 +1,652 @@
+<!DOCTYPE html> 
+Esta Etiqueta se coloca al comienzo del archivo html para indicarle
+al browser que se esta trabajando en html5
+
+<head></head>
+Se coloca al principo del codigo y en ella va informacion importante
+que en su mayoria no se podra visualizar desde la pagina web pero 
+representan configuraciones de la pagina como hojas de estilo, 
+archivos JavaScript internos, iconos, titulo
+
+<meta charset="utf-8"/>
+Esta etiqueta representa los caracteres unicode que permite visualizar 
+la pagina
+
+<meta name="description" content="Pagina de enseñanza html5"/>
+<meta name="keywords" content="html5, css3, javascript, diseño web"/>
+Los buscadores usan las etiquetas meta para categorizar el contenido de 
+la pagina web y permitir tener una mayor posibilidad de ubicarse desde los
+buscadores
+
+<body></body>
+Todo lo que va dentro del body o cuerpo es lo que se va a visualizar en la pagin web
+
+<title></title>
+La etiqueta title va dentro del head y puede ir antes o despues de las 
+etiquetas meta. La etiqueta title nos permite cambiar el texto que aparece reflejada en la pestaña y ademas sera tomada como referencia por 
+los buscadores para indexar nuestra pagina
+
+<link rel="stylesheet" type="text/css" href="">
+Usualmente va a continuacion del titulo, sirve para enlazar o incluir 
+documentos adicionales en nuestra pagina web, ccs estilos o archivos 
+JavaScript
+
+<header></header>
+Esta etiqueta va a contener el titulo de nuestra pagina web, sera lo 
+que aparezca reflejado en el encabezado de la misma, se coloca dentro 
+de etiquetas <h1></h1> que van a representar el formato que se usa 
+para denotar un titulo o subtitulos del contenido de nuestra pagina 
+que van del 1 al 6 disminuyendo su tamaño en funcion de nuestra necesidad, por convencion se coloca de primero luego del body de 
+apertura
+
+<nav></nav>
+Representa la barra de navegacion, en donde podemos agregar una lista 
+desordenada con la etiqueta <ul></ul> la cual representa todo los 
+elementos de este menu sin un orden definido, y con la etiqueta <li></li>
+vamos a representar cada uno de los elementos contenidos dentro de esta 
+etiqueta
+
+<aside></aside>
+Estas etiquetas denotan el contenido de la barra lateral
+
+<section></section>
+Esta etiqueta va a contener el contenido principal de la pagina
+
+<footer></footer>
+Esta etiqueta sirve para denotar el pie de pagina
+
+<article></article>
+Detro de esta etiquetas colocaremos el contenido de la pagina 
+estas pueden contener un titulo, contenido e incluso una 
+cabecera y un pie del articulo, el contenido lo podemos agregar 
+mediante parrafos. La colocaremos dentro de la etiqueta section.
+
+<figure></figure>
+Esta etiqueta permite agregar imagenes, videos, entre otros.
+
+<img src="ruta imagen.extension">
+Esta etiqueta permite agregar imagenes, por convencion almacenamos 
+una carpeta llamada imagenes en nuestra carpeta del proyecto y la 
+ruta que agregamos a la etiqueta quedaria como por ejemplo:
+"imagenes/imagen.jpg"
+
+<figcaption></figcaption>
+Etiqueta contenida dentro de figure que permite describir una 
+imagen y que va al pie de la imagen.
+
+<mark></mark>
+Esta etiqueta permite resaltar un palabra haciendo que el fondo 
+de la misma se torne en color amarillo, esta etiqueta es usada 
+usualmente para resaltar busquedas o la respuesta a solicitudes 
+de informacion de algun elemento dentro de la pagina hecha por 
+el usuario, por ejemplo al buscar una palabra en especifico 
+usamos ctrl + f y no resaltara las palabras que contengan lo 
+que buscamos, lo que asemeja al mismo efecto de esta etiqueta
+
+<em></em>
+Esta etiqueta coloca un texto en cursiva, es importante resaltar 
+el caracter semantico ya que aunque esta etiqueta refleje un efecto 
+visual en la pagina, este puede ser modificado con CSS sin embargo 
+la representacion de la etiqueta es destacar un parrafo el cual se 
+vera reflejado con parte de la estructura de la pagina
+
+<strong></strong>
+Esta etiqueta coloca un texto en negritas, usualmente los buscadores 
+usan estas etiquetas como referencia de busqueda
+
+<small></small>
+Esta etiqueta se usa para denotar informacion, legal, como derechos 
+de autor, creador del sitio, entre otros, y lo que hace es reducir 
+el tamaño del texto.
+
+<cite></cite>
+Sirve para resaltar titulos de libros, peliculas, canciones, etc
+Al igual que con la etiqueta de enfasis, esta etiqueta tiene 
+caracter semantico, ya que lo importante de ella mas que el efecto 
+visual que nos pueda reflejar en la pagina, es lo que realmente va 
+a representar para nuesta pagina, este tipo de etiquetas permiten 
+ubicar informacion referente a un elemento dentro de una pagina 
+con referencias en la red.
+
+<address></address>
+Etiqueta que nos da informacion referente a el contacto, usualmente 
+se coloca al final dentro del footer.
+
+<time></time>
+Esta etiqueta representa fechas y horas.
+
+En el archivo de extension .css colocaremos todas las configuraciones 
+correspondientes de los estilos css que queramos, agregar a nuestra 
+pagina, como estamos aprendiendo html por ahora veremos aspectos 
+basicos.
+
+#nombrereferencia {
+	propiedad: valor;
+}
+
+De esta manera vamos a definir una propiedad para una etiqueta especifica en el archivo de css, para reflejar estos cambios 
+en el archivo html, al comienzo de la etiqueta y justo despues 
+del nombre del tipo de etiqueta colocaremos un id="", y dentro 
+de las comillas el nombre de referencia que colocamos en el 
+archivo css, de esta manera definimos una identificacion unica 
+para un tipo de etiqueta en particular, debido a que podemos 
+tener multiples etiquetas con un mismo nombre hacemos esto para 
+diferenciarlas.
+
+***Nota*** cuando usamos # nos referimos a un selector de id 
+para refererirnos a un unico elemento en particular, y cuando 
+escribimos el nombre de referencia sin nada nos referimos a 
+un selector de etiqueta el cual va a aplicar todas las 
+propiedades que definamos internamente en todas las etiquetas 
+asociadas al mismo nombre de etiqueta.
+
+•Con la propiedad display:inline; hacemos que todos los elementos 
+asociados a este selector sean representados a lo largo de una 
+una linea, en el caso del color de fondo ahora afectara unicamente 
+a la longitud de la palabra y no al bloque entero de la linea
+
+•La propiedad height:value nos permite definiri la altural de un 
+bloque dentro de la pagina.
+
+•La propiedad margin:value nos permite establecer un margen del 
+bloque, dependiendo de la orientacion(izquierda, derecha, arriba, 
+abajo) con respecto a los limites de la pagina.
+
+•Con la propiedad clear:both podemos hacer que un bloque que tenga 
+algun otro bloque traspasando sus limites se ajuste a largo de este, 
+esto suele suceder en casos donde tenemos bloques con la propiedad 
+float la cual separar del flujo principal de la estructura el bloque 
+y en algunos casos traspasa los limites de otros bloques adyacentes. 
+El detalle es que esta propiedad no mantiene la proporsion respecto a 
+otros bloques por lo que puede afectar a la disposicion estetica del 
+conjunto.
+
+•Con la propiedad padding definimos la separacion entre el texto del 
+bloque y el bloque mismo, hay ciertas concideraciones como la 
+orientacion del padding, el bloque y el texto pero en general define 
+que tanto espacio hay entre el texto y los limites del bloque que lo 
+contienen.
+
+•Con el archvio .css (hoja de estilos) podemos establecer el estilo 
+que tendra nuestra pagina web, si crearamos mas paginas asociadas 
+a la pagina principal basta con copiar el enlace a la hoja de estilos 
+y cada una de las paginas que creemos posteriormente mantendran los 
+mismos estilos que definimos para la primera. En caso de desear 
+cambiar algun elemento en particular, como por ejemplo el color de 
+fondo de algun menu, tipo de letra o lo que necesitemos, basta con 
+crear una etiqueta <style></style> que colocaremos justo debajo de 
+la etiqueta de referencias de la hoja de estilos (link) y dentro 
+colocaremos el nombre del selector que queramos cambiar y asignaremos 
+el valor de la nueva propiedad, exactamente como hariamos en el 
+archivo .css usando el id del elemento.
+Ejemplo:
+<link rel="stylesheet" type="text/css" href="mihojadeestilos.css">
+<style>
+	#barralateral {
+		background-color: rgb(200, 50, 25);
+	}
+</style>
+
+•Para casos muy especificos donde solo deseemos cambiar una unica propiedad de un elemento en especifico sin alterar los otros dentro 
+del conjunto podemos aplicar un estilo en linea(asi se le conoce) 
+para la etiqueta deseada.
+Ejemplo:
+<h1 style="background-color: rgb(170, 25, 200);">Titulo del Articulo</h1>
+De esta manera unicamente cambiamos el color de fondo para esa etiqueta 
+contenida en esa pagina.
+
+•Una forma de asignar propiedades a multiples elementos de manera 
+independiente es usar una etiqueta estilos dentro de mi archivo 
+html y con el selector p[name="namereference"] podremos aplicar 
+todas las propiedades contenidas dentro a todos los elementos 
+cuyas etiquetas contengan el name="namereference".
+Ejemplo:
+p[name="elementos"] {
+	color: rgb(140, 70, 85);
+}
+<h1 name="elementos">Titulo</h1>
+De esta manera por ejemplo al contenido de esta etiqueta se vera 
+reflejado el cambio en el color.
+
+•Si usamos p[name^="ele"] vamos a aplicar las propiedades a todos 
+los elementos cuyo namereference comienze por "ele".
+Ejemplo:
+<h2 name="elementos">Subtitulo 1</h2>
+<h3 name="electron">Suntitulo 2</h3>
+En este caso como ambos namereference comienzan por "ele" la 
+propiedad se aplicara en ambos por igual.
+
+•Si por el contrario colocamos p[name$="san"], aplicara las 
+propiedades sobre aquellas etiquetas cuyos namereference 
+terminen en "san".
+
+•Si usamos por ejemplo p[name*="le"] va aplicar todas las 
+propiedades a las etiquetas cuyos namereference incluyan 
+la secuencia de caracteres "le" en cualquier parte del nombre.
+Ejemplo:
+<h2 name="miercoles">Subtitulo 1</h2>
+<h3 name="amable">Suntitulo 2</h3>
+
+•A traves de las pseudoclases podemos hacer algo similar, esta 
+vez dentro de la etiqueta style podemos colocar la siquiente 
+etiqueta:
+p:nth-child(2) {
+	color: rgb(200, 50, 125);
+}
+•Esto lo que hace es buscar todas las etiquetas hijas que 
+contengan la etiqueta <p></p> y que ademas tengan hermanos, 
+ya que el 2 se refiere a la segunda en orden de jerarquia, 
+a la cual va a aplicar la propiedad en cuestion.
+Ejemplo:
+<p>Hola</p>
+<p>que</p> -> En este caso los cambios se haran en esta.
+<p>tal!</p>
+
+•Si poseemos mas de una etiqueta que contenga varios parrafos 
+como es nuestro caso "p", entonces la propiedad se aplicara 
+a todos aquellos hijos que sean el segundo elemento, o al 
+segundo hermano en orden de jerarquia.
+Ejemplo:
+<ol>
+	<li>Casa</li>
+	<li>
+		<p>habitacion</p>
+		<p>baño</p> -> En este caso a esta etiqueta tambien.
+		<p>comedor</p>
+	</li>
+	<li>Apartamento</li>
+</ol>
+
+•Para utilizar el background linear gradient y poder establecer 
+un degradado de color en el bloque debemos tener en cuenta que 
+en algunos browser tendra que ir una configuracion y en otros 
+la que corresponda, en el caso de chrome usa webkit, firefox 
+usa moz, edge usa ms y opera usa -o-.
+Ejemplo:
+background: -webkit-linear-gradient(
+          top,
+          rgb(82, 8, 92) 50%,
+          rgb(207, 71, 235) 50%
+        );
+•Si agregamos al final de cada color un % vamos a tener 
+variaciones un cuanto a la proporcionalidad del degradado de 
+manera que podemos hacerlo proporcional(por defecto) o hacer 
+que uno de los colores destaque mas que el otro.
+
+•Otro tipo de degradado que podemos usar es el radial, el cual 
+toma como referencia un punto del bloque como partida para el 
+efeccto, seguido de el tipo circular que deseamos(puede ser 
+circulo o elipse por ejemplo) y luego los colores.
+Ejemplo:
+background: -webkit-radial-gradient(
+          center,
+          circle,
+          rgb(82, 8, 92),
+          rgb(207, 71, 235);
+
+•Podemos agregar un grado de transparecial a los textos 
+utilizando la propiedad rbga, la cual engloba los 3 
+parametros basicos para generar la paleta de colores 
+(rgb) y el 4to parametro "a" alpha es el que nos 
+permite establecer un grado de transparencia, que se 
+ve reflejado como un efecto de difuminacion mas que 
+de transparencia pero logra un efecto aproximado, el 
+rango se establece entre 0 y 1 (0.5 o 0.6 por ejemplo).
+
+•Con outline podemos generar un delimitado exterior al 
+bloque y seleccionar el tipo de linea del mismo, 
+ademas se le puede agregar el grosor deseado.
+Ejemplo:
+outline: 2px dashed rgb(0, 0, 0);
+Tambien podemos establecer un espaciado mayor al que 
+viene por defecto con outline offset
+Ejemplo:
+outline-offset: 15px;
+
+•Para escalar un elemento utilizamos la propiedad scale, 
+la cual al igual que algunas otras propiedades de css 
+debemos definir para que browser se va a utilizar.
+Ejemplo:
+-webkit- transform: scale(0.5);
+Como podemos ver en este caso se aplico a chrome, lo que 
+modifica el tamaño original del elemento incluyendo todo 
+lo que contenga en la proporcion establecida.
+Si agregamos un segundo parametro al scale, podemos 
+obtener resultados diversos, por ejemplo con (1, -1) 
+logramos el efecto espejo del elemento.
+
+•Con la propiedad transform tenemos otro efecto el cual 
+rota el elemento, "rotate" en el cual metemos como 
+parametro los grados que deseamos girarlo (50 deg ejemplo)
+
+•Una manera de agregar una animacion sencilla es aplicando 
+una transicion a un elemento, para ello debemos indicar 
+el browser seguido de la propiedad transition y depues de 
+los ":" colocamos nuevamente el browser y la propiedad 
+transform seguido de los parametros, el primero va a indicar 
+el tiempo que tomara la transicion en completarse, el 
+segundo el tipo de transicion y el tercer parametro indica 
+cuanto tarda en comenzar la animacion.
+Ejemplo:
+-webkit- transition: -webkit- transform: 1s ease 0.5s;
+
+
+****JavaScript****
+•Al igual que con CSS podemos configurar las acciones o 
+propiedades de nuestra pagina por etiquetas dentro de 
+nuestro archivo html o crear un archivo externo con 
+extension .js(javascript) en donde ira almacenada toda 
+la informacion de nuestro archivo JavaScript.
+
+•Podemos llamarlo igual que como haciamos con la hoja 
+de estilos, pero con la siguiente sintaxis:
+<script type="archivojavascript.js"></script>
+
+•A la hora de configurar nuestro archivo JavaScript 
+podemos colocar los eventos directamente en el 
+archivo, o podemos crear funciones que se ejecuten 
+solo cuando sean llamadas.
+Ejemplo de un evento:
+alert("Hello!!!!!!");
+*Se ejecutara al cargar la pagina
+
+Ejemplo de una funcion:
+function salute() {
+    alert("Hello!!!!!!");
+}
+*Esta funcion se ejecutara unicamente al ser llamada, en 
+este caso si la llamamos desde una etiqueta tendriamos 
+lo siguiente:
+<p onclick="salute();">Estamos aprendiendo JavaScript!!!</p>
+*En este caso al hacer click sobre el elemento se ejecutara 
+el evento que es nuestra funcion declarada anteriormente, 
+la cual mostrara una alerta.
+
+*****EVENTOS JAVASCRIPT*****
+•Un concepto muy importante dentro de JavaScript son
+los eventos, que no son mas que acciones que se 
+ejecutan luego de activarse el desencadenante del 
+evento, el desencadenante puede ocurrir de varias 
+maneras:
+*Al cargar la pagina(Sistema)
+*Al usuario hacer click sobre un elemento(Usuario)
+*Al usuario pasar el cursor sobre un elemento en 
+especifico(Usuario)
+
+Manejador de evento: Es el codigo en JavaScript que 
+procesa el evento.
+
+***Formas de construir manejadores de eventos****
+* Manejadores de eventos en linea(no recomendados)
+* Manejadores de eventos como propiedades
+* Metodo addEventListener().Nuevo en especificacion 
+HTML5 (recomendado √)
+
+Los manejadores en linea son aquellos que se construyen 
+dentro de la propia etiqueta del archivo html, y desde 
+alli manda a llamar directamente a las funciones en 
+el archivo JavaScript.
+Ejemplo: 
+<script>
+	function touch() {
+		alert("mensaje");
+	}
+</script>
+
+<p>
+	<img src="imagen.jpg" onclick="touch()">
+</p>
+
+•Los manejadores de eventos con propiedades se realizan 
+directamente en el script.
+Ejemplo:
+
+<script>
+
+        function beauty() {
+            alert("Esas dos son mias pisa en otro lado :3")
+        }
+
+        function touch() {
+            document.getElementsByTagName("img")[0].onclick = beauty;
+        }
+
+        window.onload = touch;
+
+</script>
+
+***addEventListener()****
+Estandar de las especificaciones en HTML5
+El metodo tiene 3 argumentos:
+*Nombre del evento
+*Funcion a ejecutar
+*Valor booleano
+
+<script>
+
+        function beauty() {
+            alert("Esas dos son mias pisa en otro lado :3")
+        }
+
+        function touch() {
+
+            var imagen = document.getElementsByTagName("img")[0];
+            imagen.addEventListener("click", beauty, false);
+        }
+
+        window.onload = touch;
+</script>
+
+****Videos****
+•Para insertar videos en un archivo html basta con introducir 
+una etiqueta video y colocar el video que deseamos insertar 
+en nuestra pagina.
+
+<video src="videos/kimetsu.mp4" controls width="720"></video>
+
+•Como se puede observar se agregaron dos propiedades mas 
+que son controls, que permite ver los controles basicos 
+para la reproduccion de videos, y el width para ajustar 
+el ancho de reproduccion de la superficie del video, es 
+importante destacar que no hace falta agregar el height 
+ya que el browser ajustara la otra medida por defecto 
+para mantener el aspect ratio a 16:9.
+
+•Probablemente tengamos que agregar mas de un formato 
+de video para cada tipo de archivo ya que algunos 
+browser podran reproducir un determinado formato pero 
+otros no, para ello se suele utilizar la etiqueta 
+source la cual junto a la etiqueta video nos permite 
+especificar otros formatos para un vide en especifico
+
+<section id="video">
+        <video id="mivideo" width="720" controls poster="portada/kimetsup.jpg">
+            <source src="videos/kimetsu.mp4">
+        </video>
+</section>
+•Como podemos ver indicamos un id en section que se llama 
+"video" el cual indica que el contenido de la seccion es 
+un video, y luego en video ponemos el id "mivideo" para 
+indicarle de cual video se trata, ya que podemos tener 
+un pagina como varios videos y ademas en distintos 
+formatos por lo que es importante identificarlos con un 
+id, como podemos ver a diferencia de los otro atributos 
+que vimos antes aqui agregamos el atributo "poster" que 
+permite visualizar una imagen como portada del video.
+•La etiqueta source va a contener los diferentes formatos, 
+podemos agregarlos uno seguido de otro, y a la hora de 
+reproducir el browser eligira el formato por defecto 
+evitandonos posibles problemas de incompatibilidad.
+
+*****Objeto Video js***** 
+•Propiedades:
+*Duration: duracion del video
+*currentTime: tiempo actual del video
+*Paused: video pausado
+*Ended: video finalizado
+
+•Metodos
+*Play()
+*Pause()
+
+
+****Etiqueta audio HMTL5****
+<audio></audio>
+•Atributos:
+*src
+*Controls
+*Autoplay
+*Loop
+*Preload
+
+*****Etiqueta Form HTML5****
+•Autocomplete 
+*On(por defecto)
+*Off
+Novalidate
+*Booleano
+
+•Atributos:
+*Type:
+•text
+•Email
+•Search
+•url
+•Tel
+•Number: junto con min, max y step
+•Range: junto con max, min y step
+•Date
+•Week
+•Month
+•Time
+•datetime
+
+Datalist
+API forms:
+•Metodo setCustomValidity()
+•Evento invalid
+•Objeto validityState
+
+****Propiedades de validacion (validity)
+
+•valueMissing: true cuando el campo es requiered 
+y esta vacio
+•patternMismatch: true cuando el valor no coincide 
+con el formato pattern
+•typeMismatch: true cuando la sintaxis no coincide 
+con el tipo del campo
+•tooLong: true cuando se excede maxlength
+•rangeUnderflow: true cuando se sobrepasa min
+•rangeOverflow: true cuando se sobrepasa max
+•stepMismatch: true cuando el valor de number no se 
+corresponde con step
+•customError: true cuando declaramos error 
+personalizado con setCustomValidity
+
+****Elementos canvas****
+
+•Metodo getContext("2d")
+•fillRect(x,y,ancho,alto); dibujo rectangullo solido
+•strokeRect(x,y,ancho,alto); dibuja rectangulo vacio
+•clearRect(x,y,ancho,alto); borrar rectangulo
+•strokeStyle: propiedad para color del contorno
+•fillStyle: propiedad para color del relleno
+•globalAlpha: trasparencia de todas las figuras del
+lienzo
+
+Recordar: Origen del sistema de coordenadas esta en la
+esquina superior izquierda de la pantalla
+
+Al igual que en Java en el apartado de la clase Swing
+cuando vamos a dibujar una figura y colorearla primero
+debemos aplicar el color, es decir como seleccionar el 
+color con el cual se va a dibujar, y posteriormente 
+dibujamos la fijura.
+Ejemplo:
+lienzo = elemento.getContext("2d");
+lienzo.fillStyle = "#0099ff";
+lienzo.fillRect(110, 55, 200, 200);
+
+****canvas Degradados****
+
+•createLinearGradient(x1,y1,x2,y2); crea un objeto para 
+aplicar un degradado al lienzo
+•createRadialGradient(x1, y1, r1, x2, y2, r2); crea un 
+objeto para aplicar un degradado circular o radial. 
+X = centro del circulo y Y = radio del circulo
+•addColorStop(posicion, color) donde posicion marca 
+donde empieza el degradado. Valores entre 0.0 y 1.0
+
+Ejemplo de funcion para hacer un degradado:
+function comenzar() {
+    var elemento = document.getElementById("lienzo");
+    lienzo = elemento.getContext("2d");
+
+    var degradado = lienzo.createLinearGradient(0, 150, 500, 150);
+
+    degradado.addColorStop(0, "#dc143c");
+    degradado.addColorStop(1, "#66ff66");
+
+    lienzo.fillStyle = degradado;
+    lienzo.fillRect(0, 0, 500, 300);
+}
+
+Como podemos ver dentro de los argumentos que 
+introducimos en addColorStop el primero contiene 
+valores que oscilan entre 0.0 y 1.0, esto define 
+los extremos de la figura que se van a tomar 
+como referencia para hacer el degradado, es 
+decir, hasta donde va a llegar cada color, por 
+ejemplo "0" se refiere a la parte izquierda 
+(cara izquierda de la figura) y el "1" (a la 
+cara derecha), tomando como referencia las 
+dimensiones que metimos en la funcion de 
+createLinearGradient.
+
+****canvas Trazados****
+
+•Dos metodos para comenzar y cerrar el trazado: 
+*beginPath(): comienza la figura. Es el primer 
+metodo en ser llamado.
+*closePath(): termina la figura, es el ultimo 
+en ser llamado. Si se utiliza fill() para 
+dibujar, closePath() puede ser ignorado.
+
+•Tres metodos para dibujar el trazado:
+*Stroke(): solo contorno
+*Fill(): figura solida
+*Clip(): crea una mascara
+
+•Varips metodos para crear el trazado que 
+posteriormente sera dibujado:
+*moveTo(x,y): Mueve el lapiz a la posicion 
+marcada en las coordenadas.
+*lineTo(x,y): Genera una linea recta desde 
+la posicion actual del lapiz hasta las 
+nuevas coordenadas.
+*Rect(x,y,ancho,alto): Genera un rectangulo
+*Arc(x,y,radio,angulo_inicial,angulo_final,direccion)
+*bezierCurveTo(a,b,c,d,x,y): Genera una curva bezier 
+cubica.
+*quadraticCurveTo(a,b,x,y): Genera una curva bezier 
+cuadratica.
+
+•Funcion para dibujar un semi-circulo en javascript
+function comenzar() {
+
+    var elemento = document.getElementById("lienzo");
+    lienzo = elemento.getContext("2d");
+
+    lienzo.beginPath();
+    lienzo.arc(100, 100, 50, 0, Math.PI, false);
+    lienzo.stroke();
+}
+
+
+
+
+
+
+
+
+

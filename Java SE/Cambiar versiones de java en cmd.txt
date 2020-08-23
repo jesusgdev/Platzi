@@ -21,3 +21,13 @@ Variable name: PATH
 Variable value: C:\Program Files\AdoptOpenJDK\jdk-11.0.7.10-hotspot\bin
 Si ya tienes PATH en variables de sistema lo que haces es darle en edit y la agregas a la lista.
 Ya con esto y creado el .bat cambias fácilmente entre una versión y otra, en mi caso cree un jdk8.bat y jdk11.bat y una vez creado solo basta escribir el nombre cada vez y pulsar enter para cambiar una version por otra.
+
+Este metodo me cambia la version de ejecucion de la version de java en la 
+sesion actual de la terminal, pero si quiero hacer que el cambio se haga 
+permanente debo cambiar tanto el JAVA_HOME (que va a ser igual al la ruta 
+donde se encuentra instalado java .....\java_version_installed) y el PATH (que 
+va ser igual a %JAVA_HOME%\bin y va a representar la ubicacion del archivo 
+ejecutable de java y da a entender que cada vez que ejecutemos una aplicacion 
+o archivo de dicho programa siempre se referira a esa ruta para inicializarlo).
+Estos cambios los realizamos en las variables de entorno:
+Control Panel->Systems-> Adavanced System Settings

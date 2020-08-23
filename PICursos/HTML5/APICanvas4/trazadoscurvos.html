@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            border: 1px #ff668c solid;
+
+        }
+
+        section {
+            width: 500px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", comenzar, false);
+        /*
+        Funcion para dibujar un arco de una circunferencia
+        mediante la funcion arc() que tiene 6 parametros.
+        •Los dos primeros argumentos son el centro de la
+        circunferencia
+        •El tercer argumento es el radio de la circunferencia
+        •El cuarto y quinto argumento refieren a los radianes
+        que va a tener el arco, inicial y final respectivamente.
+        Los radianes va a representar una medida donde el
+        perimetro del segmento de arco va a ser igual a el
+        radio de la circunferencia, asumiendo que el radian 0
+        esta en el eje X, el radian 1 va a representar el
+        segmento en sentido horario donde su longitud se
+        iguale al radio de la circunferencia.
+        Por lo tanto un circulo siempre tendra 2*π radianes.
+        •El sexto argumento nos devuelve el segmento de la
+        circuferencia si lo condicionamos a "false" y si
+        lo hacemos a "true" nos devulve lo opuesto, es
+        decir la circunferencia pero sin el arco.
+        function comenzar() {
+
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+            lienzo.beginPath();
+            lienzo.arc(100, 100, 50, 0, 1, false);
+            lienzo.stroke();
+        }
+        */
+
+        /*
+        function comenzar() {
+
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+            lienzo.beginPath();
+            lienzo.arc(100, 100, 50, 0, Math.PI, false);
+            lienzo.stroke();
+        } 
+        */
+
+        function comenzar() {
+
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+            lienzo.beginPath();
+            lienzo.moveTo(250, 50);
+            // lienzo.quadraticCurveTo(100, 125, 50, 200);
+            lienzo.bezierCurveTo(200, 125, 300, 125, 250, 200);
+            lienzo.stroke();
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <section id="dibujo">
+
+        <canvas id="lienzo" width="500" height="300">
+
+        </canvas>
+
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            background-color: crimson;
+        }
+
+        section {
+            width: 500px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", comenzar, false);
+
+        function comenzar() {
+
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d");
+            lienzo.strokeStyle = "#0099ff";
+            lienzo.fillStyle = "#ff3399";
+            lienzo.globalAlpha = 0.6;
+            lienzo.strokeRect(100, 100, 120, 120);
+            lienzo.fillRect(110, 110, 100, 100);
+            lienzo.clearRect(120, 120, 80, 80);
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <section id="dibujo">
+        <canvas id="lienzo" width="500" height="300">
+
+        </canvas>
+    </section>
+
+</body>
+
+</html>

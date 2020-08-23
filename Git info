@@ -158,3 +158,4 @@ actual de las url de los accesos al servidor remoto (origin - master), en
 este caso debemos constatar que estemos la cual vamos a usar como referencia
 local para los archivos de nuestro repositorio remoto(master) y chequear con 
 el comando "remote" si esta bien configurado el acceso a nuestro repositorio remoto.
+

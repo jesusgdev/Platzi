@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        function losEventos() {
+            var elemento1 = document.getElementsByTagName("p")[0];
+
+            var elemento2 = document.getElementsByTagName("img")[0];
+
+            /*
+            En este caso al usar la funcion addEventListener podemos 
+            ver que dentro de la etiqueta "p" tenemos una imagen por 
+            lo que dentro de nuestra pagina tenemos primero el bloque 
+            que contiene el parrafo y encima tenemos la imagen, debido 
+            a esto al establecer los eventos para estos dos elementos 
+            por separado por defecto al definir una accion de un 
+            mensaje de alerta al evento click en ambos elementos 
+            si hacemos click sobre la imagen se ejecutaran dos eventos 
+            primero el de la imagen y luego el del parrafo que es el
+            bloque que esta por debajo, esto es el orden por defecto,
+            sin embargo aqui es donde entra el 3er parametro del 
+            addEventListener, cuando tenemos esta situacion donde 
+            tenemos dos elementos anidados al hacer "true" uno de los 
+            eventos estamos indicandole a javascript que ese elemento
+            tiene prioridad, por lo que ejecutara primero el evento 
+            asociado a ese elemento y posteriormente el otro.
+            En nuestro caso al hacer "true" el elemento1(el parrafo) 
+            y pulsar sobre la imagen, primero se ejecutar el evento 
+            asociado al parrafo y luego el de la imagen.
+            */
+            elemento1.addEventListener("click", aviso1, true);
+
+            elemento2.addEventListener("click", aviso2, false);
+        }
+
+        function aviso1() {
+            alert("Hola soy el parrafo");
+        }
+
+        function aviso2() {
+            alert("Hola soy la imagen");
+        }
+
+        window.addEventListener("load", losEventos, false);
+    </script>
+
+</head>
+
+<body>
+
+    <p>
+        <img src="imagenes/Orihime2.jpg" width="232" height="200" alt="stylesheet">
+    </p>
+
+</body>
+
+</html>

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="MakeReport">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/MakeReport.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
