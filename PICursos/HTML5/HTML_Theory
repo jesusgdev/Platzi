@@ -655,6 +655,25 @@ de la linea, ha de comenzarse un nuevo trazado con
 beginPath()
 
 
+****Propiedades API Canvas para Textos****
+•Font: mismos valores que en CSS
+•textAlign: alineamiento horizontal de texto con los 
+siguientes valores:
+(Start, End, Left, Right, Center)
+•textBaseLine: alineamiento vertical con los siguientes 
+valores:
+(Top, Haging, Middle, Alphabetic, Ideographic, bottom)
+*Metodos:
+•strokeText(texto, x, y): Dibuja texto sin contorno
+•fillText(texto, x, y): Dibuja texto con relleno
+•measureText: Devuelve informacion sobre el tamaño del 
+texto. Util en animaciones
+***Propiedades de sombra para los Textos***
+•shadowColor: Color de sombra
+•shadowOffsetX: Desplazamiento horizontal de la sombra
+•shadowOffsetY: Desplazamiento vertical de la sombra
+•shadowBlur: Difuminado de la sombra.
+
 
 
 

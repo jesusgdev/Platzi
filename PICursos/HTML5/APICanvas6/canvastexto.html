@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            border: 1px solid crimson;
+        }
+
+        section {
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", comenzar, false);
+
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <section>
+
+        <canvas id="lienzo" width="800" height="600">
+
+        </canvas>
+
+    </section>
+
+
+</body>
+
+</html>
