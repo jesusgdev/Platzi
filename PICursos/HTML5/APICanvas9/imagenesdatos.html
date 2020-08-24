@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            border: 1px solid crimson;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", comenzar, false);
+
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+            var imagen = new Image();
+            imagen.src = "imagenes/1.jpg";
+            imagen.addEventListener("load", manipularimagen, false);
+
+        }
+
+        /*
+        "e" es el nombre por convencion que se le dan al evento 
+        desencadenado.
+        */
+        function manipularimagen(e) {
+            imagen = e.target;
+            lienzo.drawImage(imagen, 0, 0);
+
+            /*
+            El metodo getImageData almacena en un array todos los colores 
+            de cada pixel que contiene la seccion de imagen que indicamos 
+            el argumento del metodo, donde 0,0 es origen de la seccion de 
+            la imagen que vamos a manipular, en este caso coincide con el 
+            mismo del canvas, y 200, 200 refieren a el ancho y el largo de 
+            la seccion que queremos recortar para manipular, en este caso 
+            corresponden a las mismas dimensiones de la imagen que estamos 
+            utilizando lo que indica que usaremos la informacion de la 
+            imagen completa.
+            Es importante indicar que esta variable infoImagen va a contener 
+            un array, en donde cada pixel tendra
+            */
+            var infoImagen = lienzo.getImageData(0, 0, 200, 200);
+            var posicion;
+
+            for (x = 0; x <= 200; x++) {
+                for (y = 0; y <= 200; y++) {
+                    posicion = (infoImagen.width * 4 * y) + (x * 4);
+                    infoImagen.data[posicion] = 255 - infoImagen.data[posicion];
+                    infoImagen.data[posicion + 1] = 255 - infoImagen.data[posicion + 1];
+                    infoImagen.data[posicion + 2] = 255 - infoImagen.data[posicion + 2];
+                }
+            }
+
+            lienzo.putImageData(infoImagen, 300, 250);
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <section>
+
+        <canvas id="lienzo" width="1200" height="900">
+
+        </canvas>
+
+    </section>
+
+
+</body>
+
+</html>

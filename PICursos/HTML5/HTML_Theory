@@ -666,6 +666,11 @@ valores:
 *Metodos:
 •strokeText(texto, x, y): Dibuja texto sin contorno
 •fillText(texto, x, y): Dibuja texto con relleno
+blue
+**Nota** Es importante acotar que el punto de referencia 
+que se toma para dibujar el texto se encuentra en la 
+esquina inferior izquierda de los limites del texto.
+blue
 •measureText: Devuelve informacion sobre el tamaño del 
 texto. Util en animaciones
 ***Propiedades de sombra para los Textos***
@@ -674,8 +679,54 @@ texto. Util en animaciones
 •shadowOffsetY: Desplazamiento vertical de la sombra
 •shadowBlur: Difuminado de la sombra.
 
+****Metodos de API Canvas transformaciones****
+•Translate(x,y): Mueve el origen del lienzo.
+•Rotate(radianes): Rota el lienzo.
+red
+**Nota** Es importante acotar que el lienzo se rota 
+tomando como referencia el origen del mismo, y como 
+argumento recibe un valor en radianes, positivo desde el 
+eje X en sentido horario, y negativo desde el eje X en 
+sentido anti horario.
+red
+•Scale(x,y): Aumenta o disminuye el lienzo
+•Transform(m1, m2, m3, dx, dy): Cambia las caracteristicas 
+del lienzo
+•setTransform(m1, m2, m3, m4, dx, dy): Reinicia las 
+caracteristicas de la matriz
+•Save(): Graba el estado del lienzo
+•Restore(): Restaura el estado grabado del lienzo.
 
+****Metodos de API Canvas para superposiciones****
+*Propiedad globalCompositeOperation con los siguientes 
+valores:
+•Source-in
+•Source-out
+•Source-atop
+•Lighter
+•Xor
+•Destination-over
+•Destination-in
+•Destination-out
+•Destination-atop
+•Darker
+•Copy
 
+****Metodos de API Canvas para dibujar imagenes****
+*Posibles valores:
+•drawImage(imagen, x, y)
+•drawImage(imagen, x, y, ancho, largo)
+•drawImage(imagen, x1, y1, ancho1, alto1, x2, y2, 
+ancho2, alto2)
 
+****Metodos de API Canvas para convertir imagenes en datos****
+•getImageData(x, y, ancho, alto)
+•putImageData(datos_de_la _imagen, x, y)
+•createImageData(ancho, alto)
+
+****Metodos de API Canvas para crear animaciones****
+•clearRect()
+•setInterval()
+•clearInterval()
 
 

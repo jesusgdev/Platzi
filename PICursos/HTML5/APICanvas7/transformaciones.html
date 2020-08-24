@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            border: 1px solid crimson;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", comenzar, false);
+
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+            // lienzo.font = "bold 20px Verdana";
+            // lienzo.fillText("Hola Alumnos", 50, 20);
+            // lienzo.translate(100, 100);
+            // lienzo.scale(3, 3);
+            // lienzo.rotate(Math.PI);
+            // lienzo.fillText("Hola Alumnos", -250, -200);
+
+            // lienzo.transform(3, 1, 2, 3, 150, 200);
+            // lienzo.font = "bold 20px Verdana";
+            // lienzo.fillText("Hola Alumnos", 50, 50);
+
+            // lienzo.transform(3, 0, 0, 1, 0, 0);
+            // lienzo.font = "bold 20px Verdana";
+            // lienzo.fillText("Hola Alumnos", 50, 50);
+            // lienzo.transform(1, 0, 0, 10, 0, 0);
+            // lienzo.font = "bold 20px Verdana";
+            // lienzo.fillText("Hola Alumnos", 50, 50);
+
+            // lienzo.transform(3, 0, 0, 1, 0, 0);
+            // lienzo.font = "bold 20px Verdana";
+            // lienzo.fillText("Hola Alumnos", 50, 50);
+            // lienzo.setTransform(1, 0, 0, 10, 0, 0);
+            // lienzo.font = "bold 20px Verdana";
+            // lienzo.fillText("Hola Alumnos", 50, 50);
+
+            lienzo.font = "bold 20px Verdana";
+            lienzo.save();
+            lienzo.fillText("Hola Alumnos", 50, 50);
+            lienzo.translate(60, 70);
+            lienzo.rotate(Math.PI / 180 * 55);
+            lienzo.fillText("Hola Alumnos", 0, 0);
+            // lienzo.rotate(-Math.PI / 180 * 55);
+            lienzo.restore();
+            lienzo.translate(300, 400);
+            lienzo.scale(2, 2);
+            lienzo.fillText("Hola Alumnos", 100, 100);
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <section>
+
+        <canvas id="lienzo" width="1200" height="900">
+
+        </canvas>
+
+    </section>
+
+
+</body>
+
+</html>

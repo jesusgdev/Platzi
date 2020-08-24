@@ -25,7 +25,19 @@
         function comenzar() {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
+            lienzo.shadowColor = "rgba(0, 0, 0, 0.5)";
+            lienzo.shadowOffsetX = 4;
+            lienzo.shadowOffsetY = 4;
+            lienzo.shadowBlur = 5;
 
+            lienzo.font = "bold 48px Verdana";
+            lienzo.textAlign = "start";
+            lienzo.textBaseline = "top";
+            lienzo.fillText("Hola Alumnos", 100, 100);
+
+            var dimensiones = lienzo.measureText("Hola Alumnos");
+            /*
+            lienzo.strokeRect(100, 100, dimensiones.width + 5, 53); */
 
         }
     </script>

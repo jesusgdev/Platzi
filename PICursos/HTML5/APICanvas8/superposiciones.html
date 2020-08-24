@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #lienzo {
+            border: 1px solid crimson;
+        }
+
+        section {
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        window.addEventListener("load", comenzar, false);
+
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+
+            // lienzo.fillStyle = "crimson";
+            // lienzo.fillRect(400, 250, 300, 100);
+            // lienzo.globalCompositeOperation = "source-out";
+
+            // lienzo.fillStyle = "#66ff99";
+            // lienzo.font = "bold 80px Verdana";
+            // lienzo.textAlign = "center";
+            // lienzo.textBaseline = "middle";
+            // lienzo.fillText("Hola Alumnos", 550, 300);
+
+            // var imagen = new Image();
+            // imagen.src = "imagenes/Orihime.png"
+            // imagen.addEventListener("load", 
+            // function () { lienzo.drawImage(imagen, 0, 0, elemento.width, elemento.height) }, false);
+
+            var imagen = new Image();
+            imagen.src = "imagenes/Orihime.png"
+            /*
+            La funcion drawImagen en este caso toma la imagen que es el primer parametro
+            y corta una seccion de la misma cuyas medidas refieren al cuarto y quinto 
+            parametro (75,75) partiendo del punto de origen de esta seccion que esta en 
+            la esquina superior izquierda (que corresponde al segundo y tercer parametro, 
+            es decir 50,10 en sentido positivo de derecha a izquierda en X y de arriba 
+            hacia abajo en Y)
+            El sexto y septimo parametro van a determinar en donde voy a reubicar esta 
+            nueva seccion de la imagen(partiendo de la esquina superior izquierda) y 
+            voy a tomar como coordenadas de referencia el origen del canvas (es decir 
+            si estos parametro son 0,0 la seccion la movere al origen del canvas), y por 
+            ultimo los ultimos dos parametros refieren a las nuevas medidas de la seccion
+            que se recorto (es como un reescalado, es decir si el ancho y el largo son 
+            mayores a los del recorte la seccion final aumentara su tamaño, sin son 
+            menores la seccion final disminuira su tamaño)
+            */
+            imagen.addEventListener("load",
+                function () { lienzo.drawImage(imagen, 50, 10, 75, 75, 0, 0, 300, 300) }, false);
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <section>
+
+        <canvas id="lienzo" width="1200" height="900">
+
+        </canvas>
+
+    </section>
+
+
+</body>
+
+</html>
