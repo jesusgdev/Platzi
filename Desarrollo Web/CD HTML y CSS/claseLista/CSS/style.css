@@ -1,0 +1,125 @@
+body {
+  font-family: SF Pro Display;
+  font-size: small;
+  background: rgba(66, 123, 74, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(66, 123, 74, 1) 0%,
+    rgba(102, 219, 255, 1) 53%,
+    rgba(102, 219, 255, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(66, 123, 74, 1)),
+    color-stop(53%, rgba(102, 219, 255, 1)),
+    color-stop(100%, rgba(102, 219, 255, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(66, 123, 74, 1) 0%,
+    rgba(102, 219, 255, 1) 53%,
+    rgba(102, 219, 255, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(66, 123, 74, 1) 0%,
+    rgba(102, 219, 255, 1) 53%,
+    rgba(102, 219, 255, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(66, 123, 74, 1) 0%,
+    rgba(102, 219, 255, 1) 53%,
+    rgba(102, 219, 255, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(66, 123, 74, 1) 0%,
+    rgba(102, 219, 255, 1) 53%,
+    rgba(102, 219, 255, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#427b4a', endColorstr='#66dbff', GradientType=1);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+
+#main {
+  width: 40%;
+  margin: auto;
+  display: grid;
+  place-items: center;
+}
+
+#listblock {
+  border: 1px solid whitesmoke;
+  padding: 1.5rem 0;
+  border-radius: 12px;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.69);
+  box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.69);
+  overflow: hidden;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  text-align: center;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  display: block;
+  -webkit-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.69);
+  -moz-box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.69);
+  box-shadow: 10px 10px 9px 0px rgba(0, 0, 0, 0.69);
+  border-radius: 10px;
+}
+
+figcaption {
+  margin-top: 15px;
+  font: 15px Quicksand;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}

@@ -13,13 +13,23 @@ Esta etiqueta representa los caracteres unicode que permite visualizar
 la pagina
 
 <meta name="description" content="Pagina de enseñanza html5"/>
+La descripcion normalmente aparece bajo el texto del titulo del enlance 
+de la pagina cuando estamos en los buscadores, aparece en letra normal y 
+sirve como una referencia de acerca de que es el contenido de dicha 
+pagina.
 <meta name="keywords" content="html5, css3, javascript, diseño web"/>
-Los buscadores usan las etiquetas meta para categorizar el contenido de 
+<meta name="robots" content="index, follow">
+Los buscadores usan estas etiquetas meta para categorizar el contenido de 
 la pagina web y permitir tener una mayor posibilidad de ubicarse desde los
-buscadores
+buscadores(SEO)
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+Este meta permite reescalar el contenido de la pagina web cuando se 
+abre desde un dispositivo movil.
 
 <body></body>
-Todo lo que va dentro del body o cuerpo es lo que se va a visualizar en la pagin web
+Todo lo que va dentro del body o cuerpo es lo que se va a visualizar en la 
+pagina web
 
 <title></title>
 La etiqueta title va dentro del head y puede ir antes o despues de las 
@@ -31,13 +41,22 @@ Usualmente va a continuacion del titulo, sirve para enlazar o incluir
 documentos adicionales en nuestra pagina web, ccs estilos o archivos 
 JavaScript
 
+red Existen dos tipos de etiquetas las de contenido y las contenedoras, 
+las contenedoras se usan para almacenar otras etiquetas en su interior 
+que nos ayudaran a generar la estructura de nuestra pagina web(la 
+arquitectura) y las de contenido son las etiquetas que llevaran textos, 
+imagenes, videos o cualquier elemento que se va a renderizar en nuestra 
+pagina.
+red
+
 <header></header>
 Esta etiqueta va a contener el titulo de nuestra pagina web, sera lo 
 que aparezca reflejado en el encabezado de la misma, se coloca dentro 
 de etiquetas <h1></h1> que van a representar el formato que se usa 
 para denotar un titulo o subtitulos del contenido de nuestra pagina 
-que van del 1 al 6 disminuyendo su tamaño en funcion de nuestra necesidad, por convencion se coloca de primero luego del body de 
-apertura
+que van del 1 al 6 disminuyendo su tamaño en funcion de nuestra necesidad, 
+por convencion se coloca de primero luego del body de apertura.Esta 
+etiqueta casi siempre va a contener la etiqueta de navegacion.
 
 <nav></nav>
 Representa la barra de navegacion, en donde podemos agregar una lista 
@@ -45,6 +64,11 @@ desordenada con la etiqueta <ul></ul> la cual representa todo los
 elementos de este menu sin un orden definido, y con la etiqueta <li></li>
 vamos a representar cada uno de los elementos contenidos dentro de esta 
 etiqueta
+
+<main></main>
+La etiqueta main va a tener el contenido principal de nuestra pagina, 
+dentro de ella podremos usar ademas otras etiquetas en base a nuestras 
+necesidades para darle la forma deseada a nuestra pagina web.
 
 <aside></aside>
 Estas etiquetas denotan el contenido de la barra lateral
@@ -61,14 +85,41 @@ estas pueden contener un titulo, contenido e incluso una
 cabecera y un pie del articulo, el contenido lo podemos agregar 
 mediante parrafos. La colocaremos dentro de la etiqueta section.
 
+<a href="#"></a>
+Esta etiqueta nos permite generar hipervinculos
+
 <figure></figure>
-Esta etiqueta permite agregar imagenes, videos, entre otros.
+Esta etiqueta funciona como un contenedor para agregar imagenes, 
+ilustraciones, entre otros.
 
 <img src="ruta imagen.extension">
 Esta etiqueta permite agregar imagenes, por convencion almacenamos 
 una carpeta llamada imagenes en nuestra carpeta del proyecto y la 
 ruta que agregamos a la etiqueta quedaria como por ejemplo:
 "imagenes/imagen.jpg"
+Es importante utilizar la propiedad "alt", la cual nos sirve a 
+manera de descripcion del contenido de la imagen en caso de 
+que por alguna razon no se pueda visualizar
+
+<video></video>
+Esta etiqueta sirve para agregar videos
+Atributos de la etiqueta video:
+•controls: nos genera los controles del video
+•preload: permite comenzar a renderizar el video cuando la 
+pagina comienza a cargar.
+Cuando deseamos colocar para un mismo video mas de un tipo 
+de formato, debido a que es posible que el formato actual de 
+nuestro video no se reproduzca en todos los navegadores 
+usamos la etiqueta "source", la cual va ir contenida dentro 
+de las etiquetas de video, y habra una etiqueta "source" por 
+cada formato de video que deseemos agregar.
+
+red
+***Importante: Para seleccionar la ruta de imagenes y archivos
+cuando abrimos "" luego src basta con colocar ./ y el menu de 
+ayuda nos mostrara las carpetas y subcarpetas asociadas a
+nuestro proyecto
+red
 
 <figcaption></figcaption>
 Etiqueta contenida dentro de figure que permite describir una 
@@ -124,7 +175,8 @@ basicos.
 	propiedad: valor;
 }
 
-De esta manera vamos a definir una propiedad para una etiqueta especifica en el archivo de css, para reflejar estos cambios 
+De esta manera vamos a definir una propiedad para una etiqueta 
+especifica en el archivo de css, para reflejar estos cambios 
 en el archivo html, al comienzo de la etiqueta y justo despues 
 del nombre del tipo de etiqueta colocaremos un id="", y dentro 
 de las comillas el nombre de referencia que colocamos en el 
@@ -187,7 +239,8 @@ Ejemplo:
 	}
 </style>
 
-•Para casos muy especificos donde solo deseemos cambiar una unica propiedad de un elemento en especifico sin alterar los otros dentro 
+•Para casos muy especificos donde solo deseemos cambiar una unica 
+propiedad de un elemento en especifico sin alterar los otros dentro 
 del conjunto podemos aplicar un estilo en linea(asi se le conoce) 
 para la etiqueta deseada.
 Ejemplo:
@@ -256,6 +309,24 @@ Ejemplo:
 	</li>
 	<li>Apartamento</li>
 </ol>
+
+****Listas****
+Para la estructura de una lista tenemos 3 tipos de etiquetas 
+diferentes:
+<li></li>
+Esta etiqueta representa cualquier elemento contenido dentro 
+de una lista, y puede estar incluida en otras dos etiquetas 
+(ul, ol) lo que determinara como se vera reflejada en la 
+estructura de la pagina.
+<ul></ul>
+Todos los elementos de una lista (li) contenidos en esta 
+etiqueta sera colocados sin un orden declarado, es decir 
+cada elemento aparecera precedido de una viñeta de tipo 
+punto lo que no denotara ningun order establecido.
+<ol></ol>
+Todos los elementos de una lista(li) contenidos en esta 
+etiqueta seran colocados de manera ordenada y enumerados en 
+el mismo orden que fueron colocados empezando por el 1.
 
 •Para utilizar el background linear gradient y poder establecer 
 un degradado de color en el bloque debemos tener en cuenta que 
@@ -729,4 +800,59 @@ ancho2, alto2)
 •setInterval()
 •clearInterval()
 
+****Eventos API Drag & Drop para el objeto a arrastrar****
+*Objeto a arrastrar:
+•Dragstart: desencadena la accion al comenzar a arrastrar
+•Drag: desencadena la accion durante la operacion de arrastre
+•Dragend: desencadena la accion al terminar de arrastrar
 
+*Objeto de destino:
+•Dragenter: cuando el raton entra en el area de destino
+•Dragover: cuando el raton se mueve sobre el area de destino
+•Drop: cuando el elemento es soltado en el area de destino
+•Dragleave: cuando el elemento arrastrado sale del area de destino
+
+*Preparar la informacion a compartir*
+*Objeto dataTransfer con metodos:
+•setData: declara que datos seran transferidos
+•getData: declara que datos seran capturados
+
+***Resetear acciones por defecto del navegador:
+•Metodo preventDefault();
+
+****Metodos API Geolocation****
+•GetCurrentPosition(ubicacion, errores, configuracion)
+•watchPosition(ubicacion, errores, configuracion)
+•clearWatch(id)
+
+**Objetos Retornados**
+blue•Position: Objeto que es generado por los metodos 
+getCurrentPosition y watchPosition si la localizacion tiene exito
+•Propiedades del objeto position:
+*Coords: Contiene un conjunto de valores que determinan la posicion:
+•Latitude
+•Longitude
+•Altitude
+•Accuracy
+•altitudeAccuracy
+•Heading
+•Speed
+*Timestamp: Propiedad que indica el momento exacto en el que se
+determino la posicion
+blue•Error: Objeto que es generado por los metodos getCurrentPosition 
+y watchPosition si la localizacion no tiene exito
+•Propiedades del objeto error:
+*Code: representado por tres constantes:
+1.Permiso denegado
+2.Ubicacion no disponible
+3.Tiempo pra detectar ubicacion excedido
+*Message: dependiendo del error generado
+blue•Configuration: contiene tres propiedades:
+*enableHighAccuracy: booleano. Si es true se utilizaran sistemas GPS 
+para localizacion. Por defecto es false.
+*Timeout: tiempo en milisegundos para llevar a cabo la localizacion. 
+Si no se obtiene, devuelve TIMEOUT
+•maximunAge: determina si ha de ir a la cache a buscar la ultima 
+localizacion.
+
+"editor.fontFamily": "Consolas, 'Courier New', monospace"
