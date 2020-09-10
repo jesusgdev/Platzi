@@ -49,8 +49,34 @@ si ejecutamos un add.
 
 Para agregar archivos a mi repositorio local en git debo estar dentro de
 la carpeta donde se encuentran, luego ejecutamos el comando:
-$ git add . (si deseamos agregar todos los archivos alli contenidos) o
+$ git add . (si deseamos agregar todos los archivos alli contenidos, 
+tambien podemos usar git add --all) o
 $ git add file_name (si solo deseamos agregar un archivo en especifico)
+
+$ git add folder/ Con este comando agregamos una carpeta
+
+$ git add folder/*.extension Con este comando agregamos 
+todos los elementos con esa extension(extension puede ser 
+cualquier extension) que contenga esa carpeta.
+
+$ git reset reset file_name Con este comando sacamos del area 
+de stage un archivo en especifico, al igual que add este 
+comando se puede aplicar a carpetas o archivos con una extension 
+especifica.
+
+$ git commit -m "Aqui va la descripcion del commit" Con este 
+comando hacemos un commit de los archivos agregados previamente 
+en el stage. Si por alguna razon cometemos un error al escribir 
+la descripcion del commit, podemod correjirlo usando:
+$ git commit --amend -m "Aqui va la descripcion correcta del commit anterior"
+
+**renamed file**
+Si hemos agregado un archivo a git y al hacer commit deseamos 
+cambiar el nombre de ese archivo, podemos usar un comando que 
+modificara el nombre actual del archivo:
+$ git mv file_name new_file_name Con este comando vamos a 
+modificar el nombre actual del archivo tanto en nuestro sistema 
+como en el repositorio local de git.
 
 $ git log
 Este comando nos muestra el ultimo commit agregado al repositorio local.
@@ -67,7 +93,8 @@ donde se realizo un commit).
 
 $ git diff file_name
 Con este comando podemos ver las diferencias de las modificaciones
-realizadas a un archivo respecto al original que se encuentra en el repositorio local.
+realizadas a un archivo respecto al original que se encuentra en el 
+repositorio local.
 
 Si deseamos excluir de los archivos que subiremos al repositorio algunos
 archivos o carpetas contenidas en la carpeta raiz de git, podemos crear
@@ -80,11 +107,43 @@ muestra ademas las ramas creadas en nuestro repositorio local
 
 $ git branch name
 Con este comando creamos uno rama(si no existe un nombre igual) y se 
-agrega automaticamente a la lista de las ramas registradas en nuestro
+agrega automaticamente a la lista de las ramas registradas en nuestro 
 repositorio local.
 
-$ git checkout branch
+$ git checkout branch_name
 Con este comando nos movemos a la rama seleccionada.
+
+Si estamos trabajando en un proyecto y deseamos llevar un control de 
+el a medida que vamos haciendo modificaciones, podemos hacer uso de 
+las ramas, las cuales nos permiten trabajar de manera independiente 
+un proyecto y cuando estemos seguros de agregar los cambios simplemente
+fusionamos esta rama a la principal, de manera que se agregaran estos 
+nuevos cambios, los cuales ya fueron revisados.
+Para ello creamos una rama, y nos movemos a ella como vimos previamente, 
+ahora procedemos a trabajar de manera normal en nuestro proyecto, pero 
+todas las modificaciones que hagamos y los commits, seran registrados 
+en esta rama sin alterar la version de nuestro proyecto en la rama 
+principal. Dato curioso, que todos los elementos adicionales que 
+agregemos al proyecto en esta nueva rama, solo se veran reflejados en 
+la misma, mas no en la principal, por lo que debemos tener cuidado si 
+por alguna razon deseamos desechar la rama, que estos archivos 
+adicionales solo existen dentro de ella.
+
+Una vez estamos seguro de querer fusionar nuestra rama experimental 
+a la principal, nos movemos a la rama principal y alli escribimos el 
+siguiente comando:
+$ git merge branch_name
+Posteriormente podemos deshacernos de la rama anterior, con el comando:
+$ git branch -d branch_name
+De esta manera volvemos a conservar unicamente nuestra rama principal, 
+y podemos repetir el proceso las veces que necesitemos realizar cambios 
+que puedan afectar a nuestro proyecto original.
+
+El proceso en el cual creamos una rama y nos movemos a ella se puede 
+simplificar usando el siguiente comando:
+$ git checkout -b branch_name
+
+
 
 $ git remote add origin https://github.com/jesusg54g/Platzi.git
 Con este comando(la parte que inicia en el http.. lo conseguimos en
@@ -97,7 +156,8 @@ Existe otra opcion para el uso del login mediante encriptacion (Es mas
 seguro y usa el cifrado SSH key el cual hay una introducion mas arriba
 pero lleva otro procedimiento.)
 
-Ahora primero es recomendable ejecutar primero una actualizacion del repositorio local al commit mas nuevo, para eso usamos el comando:
+Ahora primero es recomendable ejecutar primero una actualizacion del 
+repositorio local al commit mas nuevo, para eso usamos el comando:
 $ git pull origin master
 Con este comando nos vamos a traer todos los cambios que tengamos en el
 repositorio remoto que no tengamos registrados en el repositorio local. 
@@ -119,13 +179,15 @@ repositorio local al repositorio remoto de github.
 
 """Eliminar un remoto""""
 
-Utiliza el comando git remote rm para eliminar una URL remota de tu repositorio.
+Utiliza el comando git remote rm para eliminar una URL remota de tu 
+repositorio.
 
 El comando git remote rm toma un argumento:
 
 El nombre de un remoto, por ejemplo destination (destino)
 Ejemplo
-Estos ejemplos asumen que estás clonando con HTTPS, lo cual se recomienda.
+Estos ejemplos asumen que estás clonando con HTTPS, lo cual se 
+recomienda.
 
 $ git remote -v
 # Ver los remotos actuales
@@ -140,7 +202,8 @@ $ git remote -v
 # Verificar que se haya ido
 > origin  https://github.com/OWNER/REPOSITORY.git (fetch)
 > origin  https://github.com/OWNER/REPOSITORY.git (push)
-Nota: git remote rm no elimina el repositorio remoto del servidor. Simplemente, elimina de tu repositorio local el remoto y sus referencias.
+Nota: git remote rm no elimina el repositorio remoto del servidor. 
+Simplemente, elimina de tu repositorio local el remoto y sus referencias.
 
 Solución de problemas
 Te puedes encontrar con estos errores al intentar eliminar un remoto.
@@ -158,4 +221,16 @@ actual de las url de los accesos al servidor remoto (origin - master), en
 este caso debemos constatar que estemos la cual vamos a usar como referencia
 local para los archivos de nuestro repositorio remoto(master) y chequear con 
 el comando "remote" si esta bien configurado el acceso a nuestro repositorio remoto.
+
+
+****Alias en git****
+Si deseamos crear un alias para un determinado comando usamos 
+el siguiente comando:
+$ git config --global alias.X "command"
+En donde esta la X iria la letra o expresion que queremos 
+asignar al alias, y en command colocariamos el comando.
+Ejemplo:
+$ git config --global alias.s "status"
+De esta manera al escribir git s seria lo mismo que escribir 
+git status.
 

@@ -1,8 +1,9 @@
+•CSS, HTML, and JavaScript.
 •Java 1.8
 •Maven/Gradle
 •Spring Boot
 •Servicios WS REST
-•API Rest
+•API Rest Swagger UI Jersey
 •JUnit test unitarios
 •Scrum
 •Microservicios
@@ -22,6 +23,7 @@
 •NPM
 •SQL
 •JPA
+•Cordova, Phonegap, React, Struct2, AJAX, JSP, Jquery, CSS, SOA, Jibx, Tomcat, WAS, Oracle, SCSS RB
 •Angular CLI
 •IDE Eclipse.
 •Desarrollo aplicaciones móviles (Ionic, Flutter)
@@ -42,7 +44,9 @@
 •Utilización herramientas de monitoreo y service desk.
 •Utilización Bitbucket, JIRA, Bamboo, INVGate, NGINx , ELK, etc.-
 •Metodologías agiles, DevOps, DevSecOps, etc.
-
+•J2ME / Multitrheading / Sockets / RS-232C / TTL.
+•ORM (Hibernate) / NoSQL (MongoDB / Cassandra) / RabbitMQ.
+•UML y Patrones de diseño
 Tareas:
 - Diseñar, producir o mantener (programar, adaptar e integrar) componentes o subconjuntos de software (clases, módulos, pantallas, rutinas, subsistemas, programas en general) conforme a especificaciones (funcionales y técnicas) para ser integrados en aplicaciones.
 - Modificar, reparar o migrar aplicaciones ya existentes. Revisar el código para resolver defectos o mejorarlo.
