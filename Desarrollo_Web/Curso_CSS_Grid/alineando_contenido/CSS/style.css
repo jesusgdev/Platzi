@@ -1,0 +1,25 @@
+body {
+    font-family: "SF Pro Display";
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(4, 100px);
+    grid-gap: 5px;
+    height: 100vh;
+    /* justify-content:  start end center strech space-around space-between space-evenly;  start es el valor por defecto ya que
+    toma todo el espacio disponible */
+    /* align-content: start end center strech space-around space-between space-evenly; start es el valor por defecto ya que
+    toma todo el espacio disponible */
+    justify-content: center;
+    align-content: center;
+}
+
+.item {
+    background: rgb(51, 204, 255);
+    padding: 10px;
+    border: 1px solid crimson;
+    /* margin-right: 10px; */
+    /* margin-bottom: 10px; */
+}

@@ -1,0 +1,314 @@
+****Grid****
+Mediante la propiedad display:grid le decimos a nuestro CSS 
+que prepare nuestra hoja html para trabajar con grid, al 
+hacer esto todas nuestras etiquetas contenidas dentro del 
+contenedor donde se aplico el grid pasaran a estar 
+delimitadas por una lineas segmentadas indicandonos que 
+hay un grid layaout presente.
+
+•grid-template-columns Nos va a establecer las proporciones 
+de nuestras columnas, por defecto cada parametro va a 
+representar el ancho de cada columna que tengamos visto 
+de izquierda a derecha.
+Ejemplo:
+grid-template-columns: 25% 200px 25%; En este ejemplo podemos 
+ver que la primera columna va tener un ancho del 25%, la 
+segunda 200px y la tercera 25%.
+
+•grid-template-rows Nos va a establecer las proporciones 
+de nuestras filas, por defecto cada parametro va a 
+representar el alto de cada fila que tengamos visto de 
+arriba hacias abajo.
+grid-template-rows: 300px 300px; En este ejemplo podemos 
+ver que la primera fila tiene un alto de 300px y la 
+segunda tambien.
+
+Si amplicamos grid a un numero de filas y columnas menor 
+al numero de elementos que posee el contenedor donde 
+estamos aplicando el grid, automaticamente las otras 
+filas y columnas asumen por defecto las medidas necesarias 
+para mantener la proporcion del diseño.
+
+•grid-template Esta propiedad va devolvernos una combinacion 
+de las dos anteriores, donde definimos las medidas para 
+cada fila y columna que necesitemos en una solo linea.
+Ejemplo:
+grid-template: 300px 150px 100px / 50% 200px 100px;
+
+***Espaciado o Gap****
+La cuadrícula por defecto tiene todas sus celdas pegadas a sus celdas contiguas. Aunque sería posible darle un margin a las celdas dentro del contenedor, existe una forma más apropiada que es hacer uso de las propiedades grid-column-gap y/o grid-row-gap.
+
+section {
+	grid-column-gap: 100px;
+	grid-row-gap: 10px;
+}
+
+Con esto, obtendríamos un resultado como el siguiente, indicando huecos entre columnas de 100px y huecos entre filas de 10px:
+8.png
+
+Estas propiedades también tienen su propio atajo que es grid-gap y es utilizado de la siguiente forma:
+
+section {
+	grid-gap: 20px 80px;
+}
+
+****Repetidores, unidades de medida y funciones****
+
+•fr = fracción:
+Es una unidad de medida que establece una división del layout en partes iguales; de manera homogénea entre la distribución de los items del contenedor.
+
+•repeat()
+Esta función nos permite repetir la cantidad de veces que le indiquemos la configuración de la unidad.
+Ejemplo:
+repeat(4, 1fr) - Si la pantalla se responsidea esto no hará nada por los elementos dentro del grid haciendo que se desordenen.
+
+•minmax()
+Esta función nos permite mantener un tamaño máximo y mínimo del elemento que estemos configurando.
+Ejemplo:
+repeat(4, minmax(200px, 1fr)) - Si la pantalla se responsidea esto mantendrá el orden hasta cierto tamaño de la pagina, debido a que se le estableció un limite.
+
+****Definiendo áreas de contenido****
+
+Para definir areas del maquetado utilizaremos la propiedad de grid: grid-template-areas: “header” “left contenido” “footer” (Pero si queremos especificar varias columnas debemos en nuestro ejemplo debemos escribir dos veces header y footer)
+
+grid-template-areas: "header header"
+                     "left contenido"
+                     "footer footer"
+
+A los elementos hay que especificarles que areas deben tomar, esto lo hacemos con la propiedad grid-area esta propiedad se aplica a los hijos de un grid container
+
+grid-area no funcionará, sino se declara la propiedad grid-template-areas en su container.
+
+Tambien para lograr las columnas y las filas de distinto tamaño y que sean responsivas, en lugar de darle 200px a una, le podemos dar 1fr y a la segunda 2fr, lo mismo con la altura.
+
+grid-template: 1fr 5fr 1fr / 1fr 2fr;
+
+Cave mencionar, que las fracciones de las filas, son independientes a las fracciones de las columnas.
+
+****Definir el tamaño de las columnas dentro de un grid****
+
+grid-column-start: 1;
+grid-column-end: 3;
+
+Para escribir esto en una sola linea:
+
+grid-column: inicio / final;
+
+Para usar por espacios: span #
+Para usar el espacio de toda la columna usamos -1 al final Ejemplo: grid-column: 1/ -1;
+
+****Alineación de contenido****
+
+En el grid existe la forma de hacer que los grid-item se alineen según ciertas propiedades.
+
+•justify-items:
+Permite alinear el contenido (grid-item) de forma horizontal. Sus valores pueden ser: start end center stretch. Esta propiedad la usa el padre.
+
+•Justify-item:start, Alinea los elementos(grid-item) hacia el principio (izquierda) y los elementos (grid-item) tendrán como ancho de dimensión el ancho de su contenido.
+
+•justify-items: end, Alinea los elemento (grid-item), hacia el final (derecha) y los elementos (grid-item) al igual que start tendrán como ancho de dimensión el ancho de su contenido
+
+•justify-items: center, Alinea los elemento (grid-item), hacia el centro (medio) y los elementos (grid-item) al igual que start y que end tendrán como ancho de dimensión el ancho de su contenido.
+
+•justify-items: stretch, va a estirar el contenido según halla definido anteriormente en: grid-template, grid-template-columns, grid-template-rows.
+
+align-items:
+Permite alinear el contenido (grid-item) de forma vertical. Sus valores pueden ser: start end center stretch. Esta propiedad la usa el padre.
+
+•align-items: toma los mismo valores que justify-content pero su alineación lo hace de forma vertical.
+
+El valor por defecto de align-item y justify-item es el strectch. strectch va a estirar el contenido según haya definido anteriormente en: grid-template, grid-template-columns, grid-template-rows.
+
+Se puede tomar un elemento (grid-item) alinearlo solamente a el
+
+•align-self:
+alinea un elemento (grid item) de forma vertical y independiente, a los demás elemento que pertenecen al grid, puede tomar valores cómo : start, center, end, stretch. Propieda que usa el hijo.
+
+•justify-selt:
+alinea un elemento (grid-item) de forma horizontal y independiente a los demás elemento que pertenece al grid, puede tomar valores cómo: start, center, end, strectch
+
+red magenta blue orange
+Recordar que justify-items justifica en sentido horizontal el contenido
+de los contenedores hijos respecto a el mismo contenedor hijo en si, y justify-content justifica el contenido de todos los contenedores hijos respecto al contenedor padre.
+Misma analogia para align-items y align-content pero vertical.
+red magenta blue orange
+
+
+Para cambiar la posición del grid implícito usamos la propiedad:
+grid-auto-columns
+
+Selecciona la propiedad usada para alinear el contenido dentro de los grid items de forma horizontal
+justify-items
+
+Propiedad usada para alinear el contenido dentro de los grid items de forma vertical:
+align-items
+
+Una fila o columna es considerada un:
+tracks
+
+****GRID GAME TIPS****
+•Cuando grid-column-start se usa solo, la expansión por defecto del elemento en la cuadrícula será de exactamente una columna. No obstante, puedes extender el elemento varias columnas añadiendo la propiedad grid-column-end.
+
+•Al emparejar grid-column-start y grid-column-end, podrías asumir que el valor final tiene que ser mayor que el valor inicial. ¡Pero no es el caso!
+
+•Si prefieres contar las líneas de la cuadrícula comenzando por la derecha, puedes dar a grid-column-start y grid-column-end valores negativos. Por ejemplo, puedes establecerlos a -1 para indicar la primera línea comenzando por la derecha.
+
+•En lugar de definir un elemento en la cuadrícula basado en la posicion inicial y final, puedes definirlo basado en la longitud de columnas deseada usando la palabra clave span. Ten presente que span solo funciona con valores positivos.
+
+•También puedes usar la palabra clave span con grid-column-start para establecer la anchura del elemento en relación a la posición final.
+
+•Escribir ambos grid-column-start y grid-column-end cada vez puede resultar cansado. Afortunadamente, grid-column es una propiedad abreviada que acepta ambos valores a la vez, separados por una barra oblicua.
+
+Por ejemplo, grid-column: 2 / 4; establecerá el comienzo del elemento de la cuadrícula en la 2ª línea vertical de esta, y su final en la 4ª línea vertical.
+
+•Una de las cosas que diferencia las cuadrículas de CSS de flexbox es que puedes posicionar los elementos fácilmente en 2 dimensiones: columnas y filas. grid-row-start funciona de manera semejante a grid-column-start pero a lo largo del eje vertical.
+
+•También puedes usar grid-column y grid-row juntos para abarcar áreas más extensas en la cuadrícula.
+
+•Si escribir grid-column y grid-row se te hace demasiado pesado, aquí tienes otra propiedad abreviada. grid-area admite cuatro valores separados por barras oblicuas: grid-row-start, grid-column-start, grid-row-end, seguido de grid-column-end.
+
+Un ejemplo de esto podría ser grid-area: 1 / 1 / 3 / 6;
+
+•Si los elementos de la cuadrícula no se sitúan explícitamente con grid-area, grid-column, grid-row, etc., se sitúan automáticamente de acuerdo al orden en el código fuente. Puedes sobrescribir esto usando la propiedad order, que es una de las ventajas de la cuadrícula frente al diseño basado en tablas.
+
+Por defecto, el valor de order de todos los elementos es igual a 0, pero puede ser establecido a cualquier valor positivo o negativo, de manera similar a z-index.
+
+•Especificar un puñado de columnas con la misma anchura puede ser aburrido. Afortunadamente hay una función repeat que te ayudará con eso.
+
+Por ejemplo, previamente hemos definido cinco columnas al 20% de anchura mediante grid-template-columns: 20% 20% 20% 20% 20%;. Esto puedes simplificarse como grid-template-columns: repeat(5, 20%);
+
+•grid-template-columns no acepta solo valores porcentuales, sino también otras unidades como pixels y ems. Incluso puedes mezclar diferentes unidades a la vez.
+
+Establece tres columnas a 100px, 3em, y 40% respectivamente.
+Ejemplo:
+grid-template-columns:100px 3em 40%;
+
+•CSS Grid también introduce una nueva medida, la fracción fr. Cada unidad fr asigna una porción del espacio disponible. Por ejemplo, si dos elementos están establecidos a 1fr y 3fr respectivamente el espacio se divide en 4 porciones iguales; el primer elemento ocupa 1/4 del espacio y el segundo elemento los 3/4 restantes.
+
+•Grid
+
+Una manera de hacer el template del Grid es usando el repeat 
+y en lado del argumento donde indicamos la dimension colocar 
+antes una notacion para la linea o columna, lo cual nos va a 
+permitir luego en los selectores de los item box establecer 
+la forma de los contenedores usando el nombre de las lineas.
+Ejemplo:
+
+.wrapper {
+  	display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, [col] 100px ) ;
+    grid-template-rows: repeat(3, [row] auto  );
+    background-color: #fff;
+    color: #444;
+}
+
+.box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+.a {
+    grid-column: col / span 2;
+    grid-row: row ;
+}
+
+.b {
+    grid-column: col 3 / span 2 ;
+    grid-row: row ;
+}
+
+.c {
+    grid-column: col ;
+    grid-row: row 2 ;
+}
+
+.d {
+    grid-column: col 2 / span 3 ;
+    grid-row: row 2 ;
+}
+
+.e {
+    grid-column: col / span 4;
+    grid-row: row 3;
+}
+
+
+The grid shorthand goes a step further and also sets properties used by the implicit grid. So you will be setting:
+
+grid-template-rows -> implicito, va definido por el numero de filas
+grid-template-columns -> al final luego de la /
+grid-template-areas -> cada linea entre " "
+grid-auto-rows -> minmax
+grid-auto-columns -> minmx
+grid-auto-flow ->
+The property also resets the grid-gap property to 0, however you cannot specify the gaps in this shorthand.
+
+You can use this syntax in the exact same way as the grid-template shorthand, just be aware than when doing so you will reset the other values set by the property.
+
+.wrapper {
+    display: grid;
+    grid: "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
+    "sd sd sd main main main main main main" minmax(100px, auto)
+    "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
+    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+
+red
+Cuando usamos la propiedad grid-auto-row o grid-auto-column podemos 
+definir a traves de minmax un valor minimo y un valor maximo para 
+las demensiones de las columnas o filas, sin embargo tambien podemos 
+colocar una serie de dimensiones que se alteraran en el orden en que 
+vayan agregandose elementos al grid.
+Ejemplo:
+grid-auto-rows: 100px 200px; En este caso esta propiedad lo que nos 
+dice es que en la primera fila todos los elementos tendra un alto de 100px y en la segunda de 200px, esto se repetira sucesivamente tantas 
+veces como elementos tengamos.
+red
+
+
+.wrapper {
+    display: grid;
+    grid-template-rows: repeat(3, 200px);
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    grid-auto-columns: 300px 100px;
+}
+
+red
+En este caso como podemos ver que usamos grid-template-rows: 
+repeat(3, 200px), lo que nos agrupa nuestros elementos en 
+filas(de arriba hacia abajo), donde cada elemento tendra un 
+alto de 200px (si tenemos mas de 3 elementos, los siguientes 
+elementos tendra un comportamiento implicito por lo que el 
+alto no sera igual al definido en el grid-template-row), sin 
+embargo al usar la propiedad grid-auto-flow: column le decimos 
+que cada vez que agrupe 3 elementos que es lo que definimos 
+antes, los siguientes los agrupe de igual manera en columnas, 
+por lo que cada 3 elementos el resto se agrupara en la siguiente 
+columna y asi sucesivamente. Por ultimo el grid-auto-columns: 
+300px 100px, hara que el ancho de cada elemento se alterne en 
+cada columna, es decir en la primera columna todos tendran un 
+ancho de 300px en la segunda de 100px y asi sucesivamente.
+red
+
+red blue green yellow
+Para alinear un grupo de elementos dentro de un contenedor 
+podemos usar las propiedades justify-content y align-content 
+que me alineara todos los elementos(si el espacio que los 
+contiene es mayor al espacio que ocupan los elementos dentro 
+del contenedor) en el eje X o el eje Y respectivamente, ademas 
+podemos hacer uso de align-self o justify-self para realizar 
+las mismas operaciones pero sobre un elemento es especifico.
+Sin embargo contamos con la propiedad place-content la cual 
+hace uso de align-content y justify-content de manera 
+simultanea por lo que podemos agrupar un grupo de elementos 
+en el centro del contenedor utilizando una unica propiedad 
+lo que simplifica la cantidad de propiedades en un documento 
+CSS.
+Ejemplo:
+place-content: center; -> Alineara el elemento en X y Y 
+                          simultaneamente.
+red blue green yellow

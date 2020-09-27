@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.box-container {
+    display: grid;
+    border: 1px solid rgb(255, 0, 102);
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-auto-rows: minmax(100px, auto); */
+    /* grid-auto-rows: 200px; */
+    height: 100vh;
+    /* grid-template-columns: minmax(80px, 180px) minmax(300px, 1fr) minmax(80px, 180px);
+    grid-template-rows: 120px 1fr 120px; */
+    grid-template-columns: repeat(9, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas: "hd hd hd hd hd hd hd hd hd"
+        "sl sl sl m m m m m m sr sr sr"
+        "f f f f f f f f f";
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.box-container div {
+    border-radius: 10px;
+}
+
+.box-item-1 {
+    background: rgb(51, 204, 255);
+    border: 1px solid crimson;
+    /* grid-column: 1 / 4;
+    grid-row: 1 / 3;*/
+    /* align-self: stretch; */
+    /* grid-column: 1 / 4;
+    grid-row: 1; */
+    grid-area: hd;
+}
+
+.box-item-2 {
+    background: rgb(102, 255, 153);
+    border: 1px solid crimson;
+    /* grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    z-index: -1; */
+    /* align-self: start; */
+    /* grid-column: 1;
+    grid-row: 2; */
+    grid-area: sl;
+}
+
+.box-item-3 {
+    background: rgb(153, 51, 255);
+    border: 1px solid crimson;
+    /* grid-column: 2;
+    grid-row: 2; */
+    grid-area: m;
+}
+
+.box-item-4 {
+    background: rgb(255, 102, 0);
+    border: 1px solid crimson;
+    /* grid-column: 3;
+    grid-row: 2; */
+    grid-area: sr;
+}
+
+.box-item-5 {
+    background: rgb(0, 153, 153);
+    border: 1px solid crimson;
+    /* grid-column: 1 / 4;
+    grid-row: 3; */
+    grid-area: f;
+}
+
+/* .box-item-6 {
+    background: rgb(255, 51, 204);
+    border: 1px solid crimson;
+
+}
+
+.box-item-7 {
+    background: rgb(255, 255, 0);
+    border: 1px solid crimson;
+
+}
+
+.box-item-8 {
+    background: rgb(0, 204, 102);
+    border: 1px solid crimson;
+
+}
+
+.box-item-9 {
+    background: rgb(255, 102, 153);
+    border: 1px solid crimson;
+
+} */

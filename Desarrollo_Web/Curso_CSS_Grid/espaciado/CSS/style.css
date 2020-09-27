@@ -1,0 +1,37 @@
+body {
+    font-family: "SF Pro Display";
+}
+
+.container {
+    display: grid;
+    /* grid-template-columns: 25% 200px 25%; */
+    /* grid-template-rows: 300px 300px; */
+    /* grid-template: filas / columnas; */
+    grid-template: 300px 150px 100px / 50% 200px 100px;
+    grid-column-gap: 30px;
+    grid-row-gap: 50px;
+    /* grid-gap: filas columnas; */
+    grid-gap: 10px 100px;
+}
+
+.item {
+    background: lightblue;
+    padding: 10px;
+    border: 1px solid crimson;
+    /* margin-right: 10px; */
+    /* margin-bottom: 10px; */
+
+}
+
+.item:nth-of-type(4) {
+    background: blueviolet;
+    overflow: auto;
+    /* display: subgrid;  Aun estan en desarrollo */
+    /* display: inline-grid; Aun estan en desarrollo */
+    display: grid;
+    grid-template: 50px 50px 50px / 200px 200px 200px;
+}
+
+.item .item {
+    background: yellow;
+}
