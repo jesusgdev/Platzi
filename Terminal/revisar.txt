@@ -1,8 +1,0 @@
-1.La shell o línea de comandos es:
-2.¿Con cuál comando copiamos un directorio y su contenido?
-cp [nombre_archivo] [nombre_copia]
-3.¿Qué operador nos ayuda a concatenar la salida de un comando a un archivo de texto?
-4.3.
->>
-Si deseamos condicionar la ejecución de un comando solo si uno anterior se ejecuto de manera exitosa podemos usar:
-&&

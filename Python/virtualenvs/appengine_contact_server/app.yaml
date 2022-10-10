@@ -1,7 +1,0 @@
-#service: default
-runtime: python37
-
-#handlers:
-#- url: .*
-#script: main.app
-#secure: always
