@@ -1,0 +1,275 @@
+/* println:
+Este comando imprime el argumento en la linea actual
+y luego corre el siguiente bloque de ejecucion a la
+proxima linea.
+
+La inferencia del tipo de variable funciona desde
+java 11, no aplicable a versiones inferiores.
+
+int x = 5 pasa a ser var x = 5
+
+los comentarios tiene tres formatos
+// single line -> Estos solo sirve linea a linea
+
+/*
+multiple line  -> despues del /* podemos poner lo                
+*/                deseemos pero siempre debe terminar
+                  con un */, todo despues de la sintaxis
+                  para cerrarlo no se reconocera como 
+                  comentario
+/**
+* and javadocs -> Mismas condiciones al multiple line
+*/
+
+naming variables
+em@ail -> not valid
+user#3 -> not valid
+
+Scanner scanner = new Scanner(System.in)
+String word = scanner.next();
+
+
+/*En este codigo introducimos un numero de 3 digitos (123) 
+por teclado y debemos hacer la suma de sus digitos de manera
+independiente y mostrar por pantalla el resultado
+*/ 
+import java.util.Scanner;
+
+public class Operations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int a = number / 100;
+        int b = (number % 100) / 10;
+        int c = number % 10;
+
+        int sum = a + b + c;
+        System.out.println(sum);
+    }
+}
+
+Los operadores de incremento y decremento tienen dos posibles
+configuraciones, prefijo o postfijo.
+En el caso del prefijo, por ejemplo si tenemos una variable
+a = 1 y las imprimeramos como (++a) obtendriamos 2, esto es porque 
+en prefijo se ejecuta primero el incremento o decremento antes de
+la variables sea usada.
+System.out.println(++a); // 2
+
+En el caso del postfijo, por ejemplo si tenemos la misma variable
+a = 1 y la imprimieramos como (a++) obtendriamos 1, pero todo valor
+de a posterior que decidamos usar o asignar a una operacion ahora
+pasara a valer 2.
+int a = 2
+System.out.println(a++ + a); //(4 + 5) -> 9
+
+
+A traves de la tabla de unicodes hexadecimal podemos representar 
+letras, caracteres y simbolos mediante la sintaxis \u.
+Por ejemplo char ch = '\u0040' esto le dara como argumento a ch el 
+simbolo @, ese decir ahora ch = @
+Tambien podemos representarlos a traves de numeros enteros, esto 
+siempre y cuando sean asignados a una variable de tipo char.
+Por ejemplo char ch = 64 representa el mismo simbolo que en el
+caso anterior, es decir char ch = @, esto porque la conversion
+del numero entero 64 al Unicode Hexadecimal es \u0040
+
+Una variable de tipo char puede ser considerada como un valor 
+entero positivo en un rango entre 0 y 65535
+
+Hay ciertas combinaciones de caracteres con el \ que pueden
+generar una accion especifica dentro del codigo, por ejemplo:
+'\n' salto de linea
+'\t' una tabulacion
+'\r' devuelve el cursor al inicio de la linea actual en la que se
+encuentra
+'\\' esto representa al \ 
+'\'' esto representa a un '
+'\"' esto representa a una "
+
+Metodos importantes de la clase String, length() devuelve la longitud
+del String y charAt(int index) devuelve la letra o caracter en esa 
+posicion dentro del String
+String name = "jesus" 
+name.lenght() = 5
+name.charAt(3) = 'u'
+
+Las String son inmutables por lo que no se puede cambiar una letra o 
+caracter por otro dentro del String, pero si podemos generar otro 
+String que contenga las modificaciones que deseamos del contenido 
+original
+
+Algunas funciones utiles de la clase String
+isEmpty() returns true if the string is empty, otherwise – false;
+toUpperCase() returns a new string in uppercase;
+toLowerCase() returns a new string in lowercase;
+startsWith(prefix) returns true if the string starts with the given string prefix, otherwise, false;
+endsWith(suffix) returns true if the string ends with the given string suffix, otherwise, false.
+contains(...) returns true if the string contains the given string or character;
+substring(beginIndex, endIndex) returns a substring of the string in the range: beginIndex, endIndex - 1;
+replace(old, new) returns a new string obtained by replacing all occurrences of old with new that can be chars or strings.
+trim() returns a copy of the string obtained by omitting the leading and trailing whitespace. Note that whitespace includes not only space character, but mostly everything that looks empty: tab, carriage return, newline character, etc.
+
+A diferencia de las operaciones matematicas las String pueden sumarse con 
+otras cadenas de caracteres, incluso si son numeros o un boleano siempre 
+y cuando sean de tipo String
+Ejemplo: String str = "str" + 100 + false // str100false
+
+La unica excepcion es cuando sumamos dos valores numericos dentro de una 
+cadena de Strings y estos estan juntos o en orden consecutivo
+Ejemplo String str = "str" + 100 + 50 + false // str150false
+
+En el caso de las String existen dos funciones para comparar cadenas, cuyo
+resultado devuelve un booleano, String11.equals(String2) el cual devuelve 
+un true si son iguales, y String1.equalsIgnoreCase(String2) el cual 
+devuelve un true si son diferentes
+
+cd / nos lleva al directorio raiz C:\>
+
+Para cambiar el apuntador de disco del prompt podemos usar el comando
+/d seguido por la nueva ruta que pasara a ser el nuevo home del prompt
+ejemplo:
+C:\Users\Drakolinux> cd /d D:\Code home y presionamos enter
+D:\Code home> este sera el uevo home.
+
+"""Logical operators"""
+
+Variables of the boolean type are often used to build logical expressions using logical operators. Java has four logical operators NOT, AND, OR and XOR:
+
+NOT is a unary operator that reverses the boolean value. It is denoted as !.
+boolean f = false; // f is false
+boolean t = !f;    // t is true
+
+AND is a binary operator that returns true if both operands are true, otherwise, it is false. It is denoted as &&.
+boolean b1 = false && false; // false
+boolean b2 = false && true;  // false
+boolean b3 = true && false;  // false
+boolean b4 = true && true;   // true
+
+OR is a binary operator that returns true if at least one operand is true, otherwise, it returns false. It is denoted as ||.
+boolean b1 = false || false; // false
+boolean b2 = false || true;  // true
+boolean b3 = true || false;  // true
+boolean b4 = true || true;   // true
+
+XOR (exclusive OR) is a binary operator that returns true if boolean operands have different values, otherwise, it is false.
+boolean b1 = false ^ false; // false
+boolean b2 = false ^ true;  // true
+boolean b3 = true ^ false;  // true
+boolean b4 = true ^ true;   // false
+
+The XOR operator is used less often than others. Just remember that Java has it. If you really need it, you can use it.
+
+"""List of relational operators"""
+Java provides six relational operators to compare numbers:
+
+== (equal to)
+!= (not equal to)
+> (greater than)
+>= (greater than or equal to)
+< (less than)
+<= (less than or equal to)
+
+
+Para ejecutar un programa de java en consola, nos vamos a la
+carpeta donde esta nuestro archivo java que contenga el codigo
+(file.java) y ejecutamos el comando javac que es el que permite
+compilar el codigo desde la consola(javac file.java), 
+inmediatamente esto nos generara un archivo file.class que este 
+archivo representa nuestro codigo compilado(llevado a java bytecode) 
+y el cual podremos ejecutar en nuestro jvm a traves de la aplicacion
+de java colocando java seguido del nombre del archivo(java file)
+
+Los packeage en java son un sistema de carpetas unico, el nombre del 
+package va definido por el identificador de la empresa o el desarrollador, 
+en este caso se usa como identificador el dominio que es el nombre unico 
+que identifica un registro en la web, pero al contrario empezaremos por 
+la palabra "com" seguido de un "." y el nombre del dominio y luego otro 
+"." seguido del nombre del proyecto.
+Por ejemplo:
+Si tu empresa fuese wwww.softwareengine.com el package podria llamarse 
+com.softwareengine.proyect_name
+
+Para hacer el redondeo de un numero o resultado de una operacion usamos 
+la funcion bigdecimal.
+
+double number = 3.5453545584444
+BigDecimal bd = new BigDecimal(number);
+        bd = bd.setScale(3,RoundingMode.HALF_UP);
+        System.out.println(bd.doubleValue());
+
+primero creamos un objeto de tipo bigdecimal y le asignamos el valor 
+number y mediante el metodo setScale seteamos la cantidad de decimales 
+a 3 y RoundingMode.HALF_UP le decimos que haga el redondeo por defecto
+(es decir al siguiente entero mas cercano 1.2 -> 1 ó 3.6 -> 4), como el 
+numero bd es de tipo bigdecimal usamos la funcion doubleValue para 
+devolver el valor a tipo doble lo que al imprimir nos da como resultado 
+3.545.
+
+"""CONVERSIONES NO SEGURAS (CASTEOS)"""
+
+No todos los Cast de variables se puede convertir de forma segura.
+
+Ejemplo:
+Al convertir un Short de 2 bytes a Byte que contiene 1 Byte se deberá cortar los bits superiores ocasionando pérdidas de información.
+
+short datoShort = 259;
+byte datoByte = (byte) datoShort;
+
+Al imprimir la variable “datoByte” da como resultado: 3
+
+259: En binario es 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 que equivale a 2 bytes.
+
+Al castearlo en Byte toma los primeros 8 bits del lado derecho. 0 0 0 0 0 0 1 1 (descartando el bit 1 de la posición 8). Este binario en formato decimal corresponde a 3.
+
+Recordar que los metodos y comportamientos de un objeto dependeran 
+del contexto o el entorno en que se encuentren.
+
+Recordar los metodos estaticos nos permiten llamarlos a traves de 
+la clase a la cual pertenecen sin necesidad de instanciar ningun 
+objeto (Class.method()) a diferencia de los metodos no estaticos 
+estos requeriran previamente un objeto para ser invocados 
+(Object1.method()).
+
+En el caso de las variables de tipo estaticos, siempre que sean 
+publicas pueden ser accedidas y hasta modificadas desde otras 
+clases sin necesidad de instanciar un objeto de la clase a la 
+cual pertenecen, en el caso de estar privadas aun podemos 
+realizarlo usando los setters.
+
+Recordar a las variables primitivas se les asigna un valor el 
+cual sera almacenado en la memoria "Stack" sin embargo todo 
+valor que se le asigne a un objeto sera almacenado en una 
+variable de tipo "Heap" y la referencia para este objeto 
+(Direccion en memoria) es la que sera almacenado en la memoria 
+"Stack".
+
+Los metodos abstractos, aquellos que pertenezcan a la clase 
+abstracta, seran obligatorios dentro de las clases hijas o 
+las subclases de la clase abstracta que los contenga.
+
+Una Clase Abstracta puede contener metodos abstractos y no 
+abstractos pero al menos debe contener un metodo abstracto.
+
+AL igual que con las interfaces cuando implementamos una 
+interfaz en una clase sera obligatorio que esta contenga los 
+metodos de dicha interfaz.
+
+Al hacer una clase abstracta esta no podra ser instanciada 
+sin embargo podremos aplicar polimorfismo ya que si podremos 
+instanciar un objeto de las clases hijas de dicha clase 
+abstracta y asignarles el resultado a uno del tipo de la clase 
+abstracta, la clase abstracta no puede ser instanciada por si 
+sola pero le podemos asignar los atributos de sus clases hijas 
+para definir un objeto de dicha clase.
+Ejemplo:
+
+public abstract class Contruccion
+
+public class Casa extends Contruccion
+
+Construccion construccion = new Casa (atributo1, atributo2,....)
+
+
+
+

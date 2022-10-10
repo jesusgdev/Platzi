@@ -1,0 +1,14 @@
+Respuesta a:
+Solución del reto de herencia en PHP
+Tuve al igual que varios el problema de poner a funcionar el servicio PHP. Después de varios intentos y leyendo varios foros, logre poner a funcionar el servicio PHP desde Visual Studio.
+
+Esto fue lo que hcie:
+
+*Instalar Xampp
+
+*Configurar las variables de entorno:
+Dentro de la variable Path agregar la ruta C:\xampp\php
+
+*En visual Studio ir a file->preferences->Settings y buscar “editar desde settings.json” y en este archivo adicionar las siguientes lineas:
+"php.executablePath": "C:/xampp/php/php.exe",
+"php.validate.executablePath": "C:/xampp/php/php.exe"

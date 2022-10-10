@@ -1,0 +1,10 @@
+/* Hijos */
+/*
+div>p {
+    color: crimson;
+}*/
+
+/* Descendientes*/
+div p {
+    color: blue;
+}

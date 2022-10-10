@@ -1,0 +1,288 @@
+Configurando Git por primera vez
+Ahora que tienes Git en tu sistema, vas a querer hacer algunas cosas para personalizar tu entorno de Git. Es necesario hacer estas cosas solamente una vez en tu computadora, y se mantendrán entre actualizaciones. También puedes cambiarlas en cualquier momento volviendo a ejecutar los comandos correspondientes.
+
+Git trae una herramienta llamada git config, que te permite obtener y establecer variables de configuración que controlan el aspecto y funcionamiento de Git. Estas variables pueden almacenarse en tres sitios distintos:
+
+Archivo /etc/gitconfig: Contiene valores para todos los usuarios del sistema y todos sus repositorios. Si pasas la opción --system a git config, lee y escribe específicamente en este archivo.
+
+Archivo ~/.gitconfig o ~/.config/git/config: Este archivo es específico de tu usuario. Puedes hacer que Git lea y escriba específicamente en este archivo pasando la opción --global.
+
+Archivo config en el directorio de Git (es decir, .git/config) del repositorio que estés utilizando actualmente: Este archivo es específico del repositorio actual.
+
+Cada nivel sobrescribe los valores del nivel anterior, por lo que los valores de .git/config tienen preferencia sobre los de /etc/gitconfig.
+
+En sistemas Windows, Git busca el archivo .gitconfig en el directorio $HOME (para mucha gente será (C:\Users\$USER). También busca el archivo /etc/gitconfig, aunque esta ruta es relativa a la raíz MSys, que es donde decidiste instalar Git en tu sistema Windows cuando ejecutaste el instalador.
+
+Tu Identidad
+Lo primero que deberás hacer cuando instales Git es establecer tu nombre de usuario y dirección de correo electrónico. Esto es importante porque los "commits" de Git usan esta información, y es introducida de manera inmutable en los commits que envías:
+
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+De nuevo, sólo necesitas hacer esto una vez si especificas la opción --global, ya que Git siempre usará esta información para todo lo que hagas en ese sistema. Si quieres sobrescribir esta información con otro nombre o dirección de correo para proyectos específicos, puedes ejecutar el comando sin la opción --global cuando estés en ese proyecto.
+
+Muchas de las herramientas de interfaz gráfica te ayudarán a hacer esto la primera vez que las uses.
+
+Tu Editor
+Ahora que tu identidad está configurada, puedes elegir el editor de texto por defecto que se utilizará cuando Git necesite que introduzcas un mensaje. Si no indicas nada, Git usará el editor por defecto de tu sistema, que generalmente es Vim. Si quieres usar otro editor de texto como Emacs, puedes hacer lo siguiente:
+
+$ git config --global core.editor emacs
+Nota
+Vim y Emacs son editores de texto frecuentemente usados por desarrolladores en sistemas basados en Unix como Linux y Mac. Si no estás familiarizado con ninguno de estos editores o estás en un sistema Windows, es posible que necesites buscar instrucciones acerca de cómo configurar tu editor favorito con Git. Si no configuras un editor así y no conoces acerca de Vim o Emacs, es muy factible que termines en un estado bastante confuso en el momento en que sean ejecutados.
+
+Comprobando tu Configuración
+Si quieres comprobar tu configuración, puedes usar el comando git config --list para mostrar todas las propiedades que Git ha configurado:
+
+$ git config --list
+user.name=John Doe
+user.email=johndoe@example.com
+color.status=auto
+color.branch=auto
+color.interactive=auto
+color.diff=auto
+...
+Puede que veas claves repetidas, porque Git lee la misma clave de distintos archivos (/etc/gitconfig y ~/.gitconfig, por ejemplo). En estos casos, Git usa el último valor para cada clave única que ve.
+
+También puedes comprobar el valor que Git utilizará para una clave específica ejecutando git config <key>:
+
+$ git config user.name
+John Doe
+
+----------------------------------------------------------------------------
+
+Para inicializar un repositorio de git local usamos el comando:
+$ git init
+Lo que nos va a generar un carpeta .git en nuestro equipo que 
+contendra toda la informacion referente al repositorio local
+que acabamos de crear.
+Para saber si poseemos claves SSH existentes en nuestro equipo
+escribimos el comando:
+$ ls -al ~/.ssh
+Esto nos va a mostrar una lista con los archivos existentes
+referentes a las llaves donde tendremos una llave publica
+(id_rsa.pub) y la llave privada(id_rsa.pub) que estara en 
+nuestro equipo y que se asegurara que la informacion solo
+sea vista por aquellos que tenga el permiso o autorizacion.
+
+Si las llaves no han sido creadas usamos el siguiente comando:
+$ ssh-keygen
+El cual generara tanto las llaves como la carpeta que las va a
+contener, el programa que crea las llave nos va a pedir una 
+frase(como una contraseña) la cual nos va a pedir cada vez que
+deseemos usar la clave, puede dejarse en blanco si no queremos
+escribir la contraseña cada vez.
+
+Una vez creadas las llaves(o si ya existian) procedemos a copiar
+la llave de acceso publico que usaremos para referenciar con 
+nuestra cuenta de github, usando el siguiente comando:
+$ clip < ~/.ssh/id_rsa.pub
+Luego nos vamos al repositorio que deseamos clonar, pisamos en 
+la parte superior derecha para desplegar el menu, seleccionamos
+"Settings", luego en el siguiente menu a la izquierda seleccionamos
+"SSH and GPG keys", luego en el boton "New SSH key", alli pondremos
+en el titulo el equipo o identificador de donde estaran almacenadas
+las llaves, y en el contenido lo que copiamos de la llave y damos
+enter.
+
+Luego copiamos el siguiente comando que nos enlazara con el origen
+del repositorio master remoto, el que esta en nuestra cuenta de github!:
+$ git remote add origin git@github.com:github_name_profile/repositorie.git
+y damos enter.
+El url que aparece luego de la palabra "origin" lo obtenemos de la pagina
+de github posicionados en el repositorio, hacemos click en clone or download
+y copiamos el contenido que aparece en la caja de texto con descripcion
+"Clone with SSH".
+
+$ git status
+Este comando nos muestra todos los archivos en lo que estamos trabajando y
+que esten ubicados en la carpeta donde esta la carpeta de inicializacion 
+de git(.git) lo cual nos permite saber que archvo se anexarian al staging
+si ejecutamos un add.
+
+Para agregar archivos a mi repositorio local en git debo estar dentro de
+la carpeta donde se encuentran, luego ejecutamos el comando:
+$ git add . (si deseamos agregar todos los archivos alli contenidos, 
+tambien podemos usar git add --all) o
+$ git add file_name (si solo deseamos agregar un archivo en especifico)
+
+$ git add folder/ Con este comando agregamos una carpeta
+
+$ git add folder/*.extension Con este comando agregamos 
+todos los elementos con esa extension(extension puede ser 
+cualquier extension) que contenga esa carpeta.
+
+$ git reset reset file_name Con este comando sacamos del area 
+de stage un archivo en especifico, al igual que add este 
+comando se puede aplicar a carpetas o archivos con una extension 
+especifica.
+
+$ git commit -m "Aqui va la descripcion del commit" Con este 
+comando hacemos un commit de los archivos agregados previamente 
+en el stage. Si por alguna razon cometemos un error al escribir 
+la descripcion del commit, podemod correjirlo usando:
+$ git commit --amend -m "Aqui va la descripcion correcta del commit anterior"
+
+**renamed file**
+Si hemos agregado un archivo a git y al hacer commit deseamos 
+cambiar el nombre de ese archivo, podemos usar un comando que 
+modificara el nombre actual del archivo:
+$ git mv file_name new_file_name Con este comando vamos a 
+modificar el nombre actual del archivo tanto en nuestro sistema 
+como en el repositorio local de git.
+
+$ git log
+Este comando nos muestra el ultimo commit agregado al repositorio local.
+
+Si no hemos agregado un archivo que hemos modifico al area de staging y 
+deseamos volver atras a los cambios realizados del archivo original
+(este archivo tiene que haber sido guardado previamente antes de la
+modificacion), podemos usar un comando que devuelve el archivo a su
+estado original y revierte los cambios hechos:
+$ git checkout -- file_name
+Con este comando podemos retornar a una version previa de un archivo
+almacenado en git(devuelve el archivo original hasta la ultima version
+donde se realizo un commit).
+
+$ git diff file_name
+Con este comando podemos ver las diferencias de las modificaciones
+realizadas a un archivo respecto al original que se encuentra en el 
+repositorio local.
+
+Si deseamos excluir de los archivos que subiremos al repositorio algunos
+archivos o carpetas contenidas en la carpeta raiz de git, podemos crear
+un archivo de texto que llamaremos ".gitignore", adrento de el vamos a 
+guardar el nombre del archivo o carpeta que queremos excluir.
+
+$ git branch
+Este comando nos indica en que rama nos encontramos actualmente y nos
+muestra ademas las ramas creadas en nuestro repositorio local
+
+$ git branch name
+Con este comando creamos uno rama(si no existe un nombre igual) y se 
+agrega automaticamente a la lista de las ramas registradas en nuestro 
+repositorio local.
+
+$ git checkout branch_name
+Con este comando nos movemos a la rama seleccionada.
+
+Si estamos trabajando en un proyecto y deseamos llevar un control de 
+el a medida que vamos haciendo modificaciones, podemos hacer uso de 
+las ramas, las cuales nos permiten trabajar de manera independiente 
+un proyecto y cuando estemos seguros de agregar los cambios simplemente
+fusionamos esta rama a la principal, de manera que se agregaran estos 
+nuevos cambios, los cuales ya fueron revisados.
+Para ello creamos una rama, y nos movemos a ella como vimos previamente, 
+ahora procedemos a trabajar de manera normal en nuestro proyecto, pero 
+todas las modificaciones que hagamos y los commits, seran registrados 
+en esta rama sin alterar la version de nuestro proyecto en la rama 
+principal. Dato curioso, que todos los elementos adicionales que 
+agregemos al proyecto en esta nueva rama, solo se veran reflejados en 
+la misma, mas no en la principal, por lo que debemos tener cuidado si 
+por alguna razon deseamos desechar la rama, que estos archivos 
+adicionales solo existen dentro de ella.
+
+Una vez estamos seguro de querer fusionar nuestra rama experimental 
+a la principal, nos movemos a la rama principal y alli escribimos el 
+siguiente comando:
+$ git merge branch_name
+Posteriormente podemos deshacernos de la rama anterior, con el comando:
+$ git branch -d branch_name
+De esta manera volvemos a conservar unicamente nuestra rama principal, 
+y podemos repetir el proceso las veces que necesitemos realizar cambios 
+que puedan afectar a nuestro proyecto original.
+
+El proceso en el cual creamos una rama y nos movemos a ella se puede 
+simplificar usando el siguiente comando:
+$ git checkout -b branch_name
+
+
+
+$ git remote add origin https://github.com/jesusg54g/Platzi.git
+Con este comando(la parte que inicia en el http.. lo conseguimos en
+nuestro repositorio en el boton clonar repositorio, desplegamos esa
+opcion y escogemos donde dice https en azul en la parte derecha superior
+del recuadro y nos desplegara otro menu con el titulo "Clone with HTTPS"
+alli copiamos el contenido de la caja de texto que aparece alli, y ese
+va a ser el que usaremos en este comando.)
+Existe otra opcion para el uso del login mediante encriptacion (Es mas
+seguro y usa el cifrado SSH key el cual hay una introducion mas arriba
+pero lleva otro procedimiento.)
+
+Ahora primero es recomendable ejecutar primero una actualizacion del 
+repositorio local al commit mas nuevo, para eso usamos el comando:
+$ git pull origin master
+Con este comando nos vamos a traer todos los cambios que tengamos en el
+repositorio remoto que no tengamos registrados en el repositorio local. 
+
+Si hay algun problema podemos usar el comando:
+$ git pull origin branchname --allow-unrelated-histories
+El cual nos permitira hacer el pull sin importar la diferencia entre
+archivos, muchas veces tenemos un archivo en el remoto diferente al que
+tenemos en el local (diferente en el aspecto que no es ni una version 
+mas vieja ni una mas nueva, es otro archivo totalmente diferente pero
+se llaman igual) y esto trae una serie de incompatibilidades que causan
+estos errores.
+
+$ git push -u origin master
+Con este comando una vez enlazado nuestro repositorio local con el remoto
+ya estamos en la posibilidad de subir nuestros archivos alojados en el 
+repositorio local al repositorio remoto de github.
+
+
+"""Eliminar un remoto""""
+
+Utiliza el comando git remote rm para eliminar una URL remota de tu 
+repositorio.
+
+El comando git remote rm toma un argumento:
+
+El nombre de un remoto, por ejemplo destination (destino)
+Ejemplo
+Estos ejemplos asumen que estás clonando con HTTPS, lo cual se 
+recomienda.
+
+$ git remote -v
+# Ver los remotos actuales
+> origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+> origin  https://github.com/OWNER/REPOSITORY.git (push)
+> destination  https://github.com/FORKER/REPOSITORY.git (fetch)
+> destination  https://github.com/FORKER/REPOSITORY.git (push)
+
+$ git remote rm destination
+# Eliminar remoto
+$ git remote -v
+# Verificar que se haya ido
+> origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+> origin  https://github.com/OWNER/REPOSITORY.git (push)
+Nota: git remote rm no elimina el repositorio remoto del servidor. 
+Simplemente, elimina de tu repositorio local el remoto y sus referencias.
+
+Solución de problemas
+Te puedes encontrar con estos errores al intentar eliminar un remoto.
+
+No se pudo eliminar la sección de configuración 'remote.[name]'
+Este error significa que el remoto que trataste de eliminar no existe:
+
+$ git remote rm sofake
+> error: No se pudo eliminar la sección de configuración 'remote.sofake'
+Comprueba que escribiste correctamente el nombre del remoto.
+
+
+Antes de hacer un push o un pull es recomendable revisar la configuracion
+actual de las url de los accesos al servidor remoto (origin - master), en 
+este caso debemos constatar que estemos la cual vamos a usar como referencia
+local para los archivos de nuestro repositorio remoto(master) y chequear con 
+el comando "remote" si esta bien configurado el acceso a nuestro repositorio remoto.
+
+
+****Alias en git****
+Si deseamos crear un alias para un determinado comando usamos 
+el siguiente comando:
+$ git config --global alias.X "command"
+En donde esta la X iria la letra o expresion que queremos 
+asignar al alias, y en command colocariamos el comando.
+Ejemplo:
+$ git config --global alias.s "status"
+De esta manera al escribir git s seria lo mismo que escribir 
+git status.
+
+git rm --cached <file> se utiliza para sacar un archivo del staging
