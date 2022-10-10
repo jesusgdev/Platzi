@@ -1,8 +1,0 @@
-CREATE TABLE `carreras` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_carrera` varchar(100) NOT NULL,
-  `facultad_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `carreras_facultad_idx` (`facultad_id`),
-  CONSTRAINT `carreras_facultad` FOREIGN KEY (`facultad_id`) REFERENCES `facultades` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
